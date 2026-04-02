@@ -1,29 +1,58 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import Script from "next/script";
+import { useState, useRef, useEffect } from "react";
+
+declare global {
+  interface Window {
+    turnstile: {
+      render: (container: string | HTMLElement, options: Record<string, unknown>) => string;
+      reset: (widgetId: string) => void;
+      execute: (widgetId: string) => void;
+    };
+  }
+}
 
 export default function Home() {
   const [email, setEmail] = useState("");
+  const [agreed, setAgreed] = useState(false);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [turnstileReady, setTurnstileReady] = useState(false);
+  const widgetId = useRef<string | null>(null);
+  const tokenRef = useRef<string | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (turnstileReady && containerRef.current && !widgetId.current) {
+      widgetId.current = window.turnstile.render(containerRef.current, {
+        sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY,
+        theme: "dark",
+        appearance: "interaction-only",
+        callback: (token: string) => { tokenRef.current = token; },
+      });
+    }
+  }, [turnstileReady]);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setStatus("loading");
     try {
-      const res = await fetch("https://formspree.io/f/xqegdyle", {
+      const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, token: tokenRef.current }),
       });
       if (res.ok) {
         setStatus("success");
         setEmail("");
       } else {
         setStatus("error");
+        if (widgetId.current) window.turnstile.reset(widgetId.current);
       }
     } catch {
       setStatus("error");
+      if (widgetId.current) window.turnstile.reset(widgetId.current);
     }
   }
 
@@ -44,6 +73,13 @@ export default function Home() {
           backgroundImage:
             "radial-gradient(ellipse 80% 60% at 60% 40%, #C9A84C 0%, transparent 70%)",
         }}
+      />
+
+      {/* Turnstile script */}
+      <Script
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+        strategy="lazyOnload"
+        onLoad={() => setTurnstileReady(true)}
       />
 
       {/* Content */}
@@ -75,22 +111,44 @@ export default function Home() {
             You&apos;re on the list.
           </p>
         ) : (
-          <form onSubmit={handleSubmit} className="flex w-full max-w-md">
-            <input
-              type="email"
-              required
-              placeholder="Your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 bg-transparent border border-[#C9A84C]/40 text-white placeholder-white/30 text-sm px-4 py-3 focus:outline-none focus:border-[#C9A84C] transition-colors"
-            />
-            <button
-              type="submit"
-              disabled={status === "loading"}
-              className="bg-[#C9A84C] text-[#0D1B2A] text-xs tracking-[0.2em] uppercase font-medium px-6 py-3 hover:bg-[#C9A84C]/90 transition-colors disabled:opacity-50"
-            >
-              {status === "loading" ? "..." : "Begin"}
-            </button>
+          <form onSubmit={handleSubmit} className="flex flex-col items-center w-full max-w-md gap-3">
+            <div className="flex w-full">
+              <input
+                type="email"
+                required
+                placeholder="Your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="flex-1 bg-transparent border border-[#C9A84C]/40 text-white placeholder-white/30 text-sm px-4 py-3 focus:outline-none focus:border-[#C9A84C] transition-colors"
+              />
+              <button
+                type="submit"
+                disabled={status === "loading" || !agreed}
+                className="bg-[#C9A84C] text-[#0D1B2A] text-xs tracking-[0.2em] uppercase font-medium px-6 py-3 hover:bg-[#C9A84C]/90 transition-colors disabled:opacity-40"
+              >
+                {status === "loading" ? "..." : "Begin"}
+              </button>
+            </div>
+
+            {/* Consent checkbox */}
+            <label className="flex items-start gap-2 cursor-pointer text-left">
+              <input
+                type="checkbox"
+                required
+                checked={agreed}
+                onChange={(e) => setAgreed(e.target.checked)}
+                className="mt-[2px] accent-[#C9A84C]"
+              />
+              <span className="text-white/30 text-[10px] leading-relaxed">
+                I agree to receive email updates from Merlin Leadership. See our{" "}
+                <a href="/privacy" className="text-[#C9A84C]/70 hover:text-[#C9A84C] underline transition-colors">
+                  Privacy Policy
+                </a>.
+              </span>
+            </label>
+
+            {/* Invisible Turnstile */}
+            <div ref={containerRef} />
           </form>
         )}
         {status === "error" && (
@@ -99,8 +157,11 @@ export default function Home() {
       </div>
 
       {/* Footer */}
-      <div className="absolute bottom-0 left-0 right-0 bg-[#0D1B2A] px-6 py-[3px] flex items-center justify-end">
-        <p className="text-white/20 text-[7px] tracking-widest">
+      <div className="absolute bottom-0 left-0 right-0 bg-transparent px-6 py-2 flex items-center justify-end gap-4">
+        <a href="/privacy" className="text-white/30 text-[9px] tracking-widest hover:text-white/50 transition-colors">
+          Privacy Policy
+        </a>
+        <p className="text-white/30 text-[9px] tracking-widest">
           © 2026 Merlin Leadership
         </p>
       </div>

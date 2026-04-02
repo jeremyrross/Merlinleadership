@@ -97,6 +97,13 @@ export default function Home() {
           <p className="text-red-400 text-xs mt-2">Something went wrong. Try again.</p>
         )}
       </div>
+
+      {/* Footer */}
+      <div className="absolute bottom-0 left-0 right-0 bg-[#0D1B2A] px-6 py-[3px] flex items-center justify-end">
+        <p className="text-white/20 text-[7px] tracking-widest">
+          © 2026 Merlin Leadership
+        </p>
+      </div>
     </main>
   );
 }

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>7 Leadership Lessons, learned in the field</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..600;1,400..600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #103f4c;
+    --orange: #ff914d;
+    --orange-light: #ffab6e;
+    --teal-700: #08677b;
+    --teal-600: #027e96;
+    --teal-100: #cfebf0;
+    --teal-50: #eaf6f8;
+    --teal-200: #9fd7e1;
+    --ink: #1a1a19;
+    --ink-2: #2c2c2b;
+    --gray: #737373;
+    --gray-light: #9a9a98;
+    --border: #dcdcda;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: Figtree, system-ui, sans-serif;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    background: #f0f0ee;
+  }
+  a { color: var(--teal-600); }
+  em, i, .serif-italic { font-family: Lora, Georgia, serif; font-style: italic; }
+
+  @page { size: letter; margin: 0; }
+
+  .page {
+    width: 8.5in;
+    height: 11in;
+    position: relative;
+    overflow: hidden;
+    background: #ffffff;
+    page-break-after: always;
+    margin: 0 auto 24px auto;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  }
+  .page:last-child { page-break-after: auto; }
+  @media print {
+    body { background: #fff; }
+    .page { box-shadow: none; margin: 0; }
+  }
+
+  .footer {
+    position: absolute; left: 1.05in; right: 1.05in; bottom: 0.5in;
+    display: flex; align-items: baseline; justify-content: space-between; gap: 0.3in;
+    font-size: 8pt; letter-spacing: 0.09em; text-transform: uppercase; color: var(--gray-light);
+  }
+  .footer.on-dark { color: rgba(255,255,255,0.5); }
+
+  .lesson-no { font-family: Lora, Georgia, serif; font-style: italic; font-weight: 500; font-size: 46pt; line-height: 0.85; color: var(--orange); }
+  .lesson-label { font-size: 9.5pt; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray); font-weight: 600; }
+  .lesson-title { margin: 0; font-family: Lora, Georgia, serif; font-style: italic; font-weight: 500; font-size: 27pt; line-height: 1.14; color: var(--navy); text-wrap: pretty; }
+  .pull-quote {
+    margin: 0; border-left: 3px solid var(--orange); padding-left: 20px;
+    font-family: Lora, Georgia, serif; font-style: italic; font-size: 15pt; line-height: 1.45;
+    color: var(--teal-700); max-width: 5.6in; text-wrap: pretty;
+  }
+  .body-copy { display: flex; flex-direction: column; gap: 13px; font-size: 12pt; line-height: 1.68; color: var(--ink-2); max-width: 5.9in; text-wrap: pretty; }
+  .body-copy p { margin: 0; }
+  .callout {
+    margin-top: auto; background: var(--teal-50); border: 1px solid var(--teal-100); border-radius: 10px;
+    padding: 20px 24px; display: flex; flex-direction: column; gap: 7px;
+  }
+  .callout-label { font-size: 9.5pt; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal-600); font-weight: 700; }
+  .callout-text { font-family: Lora, Georgia, serif; font-style: italic; font-weight: 500; font-size: 14.5pt; line-height: 1.45; color: var(--navy); text-wrap: pretty; }
+
+  .lesson-page { padding: 1in 1.05in; display: flex; flex-direction: column; gap: 0.34in; }
+  .lesson-head { display: flex; align-items: flex-start; gap: 0.3in; }
+  .lesson-head-text { display: flex; flex-direction: column; gap: 10px; padding-top: 6px; }
+</style>
+</head>
+<body>
+
+<!-- Page 1: Cover -->
+<section class="page">
+  <div style="height:8.4in;background:var(--navy);color:#fff;padding:1.15in 1.05in;display:flex;flex-direction:column;justify-content:center;gap:0.28in;">
+    <h1 style="margin:0;font-family:Lora,Georgia,serif;font-style:italic;font-weight:500;font-size:46pt;line-height:1.08;letter-spacing:-0.012em;max-width:5.3in;text-wrap:pretty;">7 Leadership Lessons, learned in the field</h1>
+    <p style="margin:0;font-family:Lora,Georgia,serif;font-style:italic;font-size:16pt;line-height:1.45;color:var(--teal-100);max-width:5in;text-wrap:pretty;">Mostly through making mistakes</p>
+  </div>
+  <div style="height:2.6in;box-sizing:border-box;padding:0 1.05in;display:flex;align-items:center;justify-content:space-between;gap:0.5in;">
+    <div style="display:flex;flex-direction:column;gap:6px;">
+      <div style="font-size:12pt;font-weight:600;color:var(--ink);">Jeremy Ross</div>
+      <div style="font-size:11pt;color:var(--gray);">Founder, Merlin Leadership Collective</div>
+    </div>
+    <img src="assets/merlin-lockup.png" alt="Merlin Leadership Collective" style="width:3.7in;height:auto;display:block;">
+  </div>
+</section>
+
+<!-- Page 2: Before we start / contents -->
+<section class="page" style="padding:1in 1.05in;display:flex;flex-direction:column;justify-content:space-between;">
+  <div style="display:flex;flex-direction:column;gap:0.3in;">
+    <h2 style="margin:0;font-family:Lora,Georgia,serif;font-style:italic;font-weight:500;font-size:30pt;line-height:1.12;color:var(--navy);">Before we start</h2>
+    <div class="body-copy">
+      <p>I believe caring, brave leaders who stay committed to their own growth make the world better.</p>
+      <p>Not perfect leaders. Not leaders who have it all figured out. Leaders who care enough to keep having the hard conversations, and who are honest enough with themselves to keep evolving.</p>
+      <p>These seven lessons are some of the ones that shaped me most, each tied to a real moment where something changed how I lead. A few came from getting it wrong and having to face that. A few came from finally slowing down enough to notice something true that I was missing. All of them made me the leader I am today.</p>
+      <p>My hope is that at least one of these lands for you the way it did for me, not as advice to file away, but as something you carry into your next hard conversation, your next hard decision.</p>
+      <p>Take what's useful. Leave the rest. And if you're someone who cares enough to keep working on how you lead, that alone puts you ahead of most.</p>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:18px;">
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <div style="display:flex;gap:14px;align-items:baseline;"><span class="serif-italic" style="color:var(--orange);font-size:13pt;width:0.34in;">01</span><span style="font-size:11.5pt;color:var(--ink-2);">Consistent Effort Wins</span></div>
+      <div style="display:flex;gap:14px;align-items:baseline;"><span class="serif-italic" style="color:var(--orange);font-size:13pt;width:0.34in;">02</span><span style="font-size:11.5pt;color:var(--ink-2);">Leadership shows up in the uncomfortable moments</span></div>
+      <div style="display:flex;gap:14px;align-items:baseline;"><span class="serif-italic" style="color:var(--orange);font-size:13pt;width:0.34in;">03</span><span style="font-size:11.5pt;color:var(--ink-2);">You Build Credibility with Yourself by Doing Hard Things</span></div>
+      <div style="display:flex;gap:14px;align-items:baseline;"><span class="serif-italic" style="color:var(--orange);font-size:13pt;width:0.34in;">04</span><span style="font-size:11.5pt;color:var(--ink-2);">Fall in Love With the Problem, Not the Solution</span></div>
+      <div style="display:flex;gap:14px;align-items:baseline;"><span class="serif-italic" style="color:var(--orange);font-size:13pt;width:0.34in;">05</span><span style="font-size:11.5pt;color:var(--ink-2);">You Have to Ask for the Feedback You Don't Get</span></div>
+      <div style="display:flex;gap:14px;align-items:baseline;"><span class="serif-italic" style="color:var(--orange);font-size:13pt;width:0.34in;">06</span><span style="font-size:11.5pt;color:var(--ink-2);">The Art of Giving Meaningful Feedback</span></div>
+      <div style="display:flex;gap:14px;align-items:baseline;"><span class="serif-italic" style="color:var(--orange);font-size:13pt;width:0.34in;">07</span><span style="font-size:11.5pt;color:var(--ink-2);">You Don't Need an Audience for Something to Count</span></div>
+    </div>
+    <div style="border-top:1px solid var(--border);padding-top:14px;font-family:Lora,Georgia,serif;font-style:italic;font-size:11.5pt;color:var(--gray);">Jeremy</div>
+  </div>
+  <div class="footer"><span>7 Leadership Lessons</span><span>02</span></div>
+</section>
+
+<!-- Page 3: Lesson 01 -->
+<section class="page lesson-page">
+  <div class="lesson-head">
+    <div class="lesson-no">01</div>
+    <div class="lesson-head-text">
+      <div class="lesson-label">Lesson one</div>
+      <h2 class="lesson-title">Consistent Effort Wins</h2>
+    </div>
+  </div>
+  <p class="pull-quote">Consistency only works when it's honestly yours, not a copy of someone else's.</p>
+  <div class="body-copy">
+    <p>When I started at Apple in a frontline sales and service role, I got promoted fast, moving from the floor into supervisory roles within a year, and further into management not long after. It felt like proof that if you just worked hard, the next step would keep coming.</p>
+    <p>Then it took four years to get promoted again. I was frustrated and impatient, and underneath that, I felt like I'd hit a ceiling. So I started studying the leaders I admired, the ones who already had the job I wanted, and I tried to copy them. Their energy, their language, the way they carried themselves. It was exhausting, because the harder I tried to be like them, the further I got from just being myself.</p>
+    <p>Eventually I let go of forcing it. I stopped chasing the promotion and started actually having fun in the role again. That's when people started noticing, not because I was performing leadership, but because I'd stopped pretending to be someone else and started showing up as me.</p>
+    <p>Consistent effort only compounds when it's honest. Copying someone else's version of success, however good their numbers look, just burns you out faster.</p>
+  </div>
+  <div class="callout">
+    <div class="callout-label">Lesson learned</div>
+    <div class="callout-text">when I stopped copying someone else's style and just became myself, work got more enjoyable and my impact actually grew.</div>
+  </div>
+  <div class="footer"><span>7 Leadership Lessons</span><span>03</span></div>
+</section>
+
+<!-- Page 4: Lesson 02 -->
+<section class="page lesson-page">
+  <div class="lesson-head">
+    <div class="lesson-no">02</div>
+    <div class="lesson-head-text">
+      <div class="lesson-label">Lesson two</div>
+      <h2 class="lesson-title">Leadership Shows Up in the Uncomfortable Moments, Not the Big Ones</h2>
+    </div>
+  </div>
+  <p class="pull-quote">Clear is kind. Unclear is unkind.</p>
+  <div class="body-copy">
+    <p>Bren&eacute; Brown wrote that clear is kind, and unclear is unkind, and that line meant so much to me when I was a newer manager. I was stepping into performance conversations for the first time, delivering bad news, coaching people through gaps, and sometimes handling terminations that were truly heartbreaking (for them, and for me).</p>
+    <p>I fumbled through my words constantly in those early conversations. What I eventually learned is that the kindest thing you can do for someone is let them know exactly where they stand, especially when it's uncomfortable. Avoiding the hard conversation always felt kinder in the moment, but it never actually was.</p>
+    <p>Leadership doesn't just show up in the big moments in front of a crowd, a strategy meeting, or a promotion. It shows up in choosing to be clear with someone when staying vague would be so much easier for you and so much worse for them.</p>
+  </div>
+  <div class="callout">
+    <div class="callout-label">Lesson learned</div>
+    <div class="callout-text">Being clear and honest with people is one of the kindest things you can offer, especially when it's hard.</div>
+  </div>
+  <div class="footer"><span>7 Leadership Lessons</span><span>04</span></div>
+</section>
+
+<!-- Page 5: Lesson 03 -->
+<section class="page lesson-page">
+  <div class="lesson-head">
+    <div class="lesson-no">03</div>
+    <div class="lesson-head-text">
+      <div class="lesson-label">Lesson three</div>
+      <h2 class="lesson-title">You Build Credibility with Yourself by Doing Hard Things</h2>
+    </div>
+  </div>
+  <p class="pull-quote">You don't need to feel ready. You need a track record of figuring things out.</p>
+  <div class="body-copy">
+    <p>I grew up as an overweight kid, and there was a stretch of my life where I couldn't have imagined finishing a 100-mile race on a roadbike, let alone two half marathons, or multi-day hikes through the Rocky Mountains. I've done all of those now and each one left me with something more useful than the finish line itself: proof.</p>
+    <p>Proof that I could do a hard thing I once thought was impossible. That proof compounds into confidence and a powerful sense of everything being &ldquo;figureoutable&rdquo;. It's part of why I've been able to replace parts of a transmission and rebuild suspension components in my own garage with nothing but a couple of jack stands and a YouTube video. I'm not naturally mechanical, but I've built a track record with myself of figuring hard things out.</p>
+    <p>That track record doesn't stay in the garage or on the trails. It shows up every time I'm facing a hard decision at work or a challenge I haven't solved before at home. I don't need to feel ready. I just need to remember I've done hard things before, and I'll do this one too.</p>
+  </div>
+  <div class="callout">
+    <div class="callout-label">Lesson learned</div>
+    <div class="callout-text">Every hard thing you finish becomes evidence you can do the next impossible thing too</div>
+  </div>
+  <div class="footer"><span>7 Leadership Lessons</span><span>05</span></div>
+</section>
+
+<!-- Page 6: Lesson 04 -->
+<section class="page lesson-page">
+  <div class="lesson-head">
+    <div class="lesson-no">04</div>
+    <div class="lesson-head-text">
+      <div class="lesson-label">Lesson four</div>
+      <h2 class="lesson-title">Fall in Love With the Problem, Not the Solution</h2>
+    </div>
+  </div>
+  <p class="pull-quote">If you're not careful, you'll defend a solution long after it stops solving the problem.</p>
+  <div class="body-copy">
+    <p>Earlier in my leadership career, I got pretty darn good at asking questions. I leveraged my curiosity about people and was able to help many of my employees jump developmental hurdles, gain new skills, and level up. I really found my groove with using competency-based frameworks as a tool, and I could see people unlock real insight with them. I was proud of that skill, it worked for me.</p>
+    <p>When I moved into a new environment with no formal developmental framework at all, I saw the gap immediately and pushed my boss and HR team hard to introduce a competency framework, telling them I could build and teach myself. What I didn't do was slow down and ask what problems people were actually living with day to day.</p>
+    <p>I was in love with a solution I already knew how to deliver, not the actual problems in front of me. My bid to introduce new tools was squashed, and looking back, I don't blame anyone for hearing me as a guy with a favourite hammer looking for nails, because that's exactly what I was doing.</p>
+  </div>
+  <div class="callout">
+    <div class="callout-label">Lesson learned</div>
+    <div class="callout-text">invest your energy in deeply understanding the actual problems your people are living with, not the fix you already know how to give them.</div>
+  </div>
+  <div class="footer"><span>7 Leadership Lessons</span><span>06</span></div>
+</section>
+
+<!-- Page 7: Lesson 05 -->
+<section class="page lesson-page">
+  <div class="lesson-head">
+    <div class="lesson-no">05</div>
+    <div class="lesson-head-text">
+      <div class="lesson-label">Lesson five</div>
+      <h2 class="lesson-title">You Have to Ask for the Feedback You Don't Get</h2>
+    </div>
+  </div>
+  <p class="pull-quote">You don't get what you don't ask for.</p>
+  <div class="body-copy">
+    <p>Most people have an opinion about how you could be doing your job better. They're just not going to walk up and hand it to you. It's not a failure of leadership or a sign something's broken, it's just how it works. Feedback doesn't show up on its own, you have to go get it, and you have to ask specifically.</p>
+    <p>I stopped asking vague questions like &ldquo;any feedback for me&rdquo;, and started asking pointed questions instead, about a particular decision, a particular meeting, a particular way I'd handled a conversation. A specific question gives someone permission to actually answer honestly, a vague one just gives them an easy out.</p>
+    <p>Giving feedback well is a skill most leadership advice covers. Asking for it, wanting it, and actually sitting with the answer is what will make you better.</p>
+  </div>
+  <div class="callout">
+    <div class="callout-label">Lesson learned</div>
+    <div class="callout-text">honest questions get honest answers. Vague ones just let people off the hook.</div>
+  </div>
+  <div class="footer"><span>7 Leadership Lessons</span><span>07</span></div>
+</section>
+
+<!-- Page 8: Lesson 06 -->
+<section class="page lesson-page">
+  <div class="lesson-head">
+    <div class="lesson-no">06</div>
+    <div class="lesson-head-text">
+      <div class="lesson-label">Lesson six</div>
+      <h2 class="lesson-title">The Art of Giving Meaningful Feedback</h2>
+    </div>
+  </div>
+  <p class="pull-quote">Feedback isn't dumping your message and walking away; It's opening a door.</p>
+  <div class="body-copy">
+    <p>Most leaders either avoid feedback or deliver it like handing down a judgement, and neither one actually helps the person on the other end. I've given a lot of bad feedback over the years and slowly gotten better at it.</p>
+    <p>I have learned that the best feedback starts before you even open your mouth: let the emotion pass so it doesn't distort what you're trying to say. It also helps to believe the other person didn't mean to do something wrong (even when you're sure otherwise). Then name the specific behavior you saw, not your judgment of it. Not &ldquo;that was disrespectful,&rdquo; just &ldquo;I noticed you rolled your eyes.&rdquo; Tie it to the real impact, ideally the impact on you personally, which is more honest and far more disarming than keeping it abstract.</p>
+    <p>Then, the step most people skip entirely, invite a conversation. Ask how they were feeling in that moment. Done this way, feedback stops being a judgement and becomes a door two people can walk through together.</p>
+  </div>
+  <div class="callout">
+    <div class="callout-label">Lesson learned</div>
+    <div class="callout-text">feedback works best when you can be honestly curious about where someone was coming from, and invite a conversation.</div>
+  </div>
+  <div class="footer"><span>7 Leadership Lessons</span><span>08</span></div>
+</section>
+
+<!-- Page 9: Lesson 07 -->
+<section class="page lesson-page">
+  <div class="lesson-head">
+    <div class="lesson-no">07</div>
+    <div class="lesson-head-text">
+      <div class="lesson-label">Lesson seven</div>
+      <h2 class="lesson-title">You Don't Need an Audience for Something to Count</h2>
+    </div>
+  </div>
+  <p class="pull-quote">It's not for anyone else to notice. It's for the version of you that gets to exist because of it.</p>
+  <div class="body-copy">
+    <p>For a stretch of time I spent a lot of energy on meditation, sitting with silence, learning to quiet a mind that had rarely been quiet before. Nobody applauded that. Nobody even knew it was happening, and honestly, nobody ever needed to.</p>
+    <p>It wasn't building toward a moment where someone would notice and say something had changed. It doesn't work that way, and it's not supposed to. What it actually did was shift the trajectory I was on, quietly, into becoming a version of myself closer to who I actually wanted to be.</p>
+    <p>No one else has to see that for it to be real. No one else even has to know it happened. The work isn't for anyone else's benefit or approval. It's for the person you get to become because you did it, whether a single other soul ever notices the difference or not. Where it's mediation, reading, taking a class, or something different, improving yourself will improve your leadership, and nobody needs to know about it; but they'll experience a better version of you.</p>
+  </div>
+  <div class="callout">
+    <div class="callout-label">Lesson learned</div>
+    <div class="callout-text">the most important growth in your life may never be seen by anyone but you, and that's fine.</div>
+  </div>
+  <div class="footer"><span>7 Leadership Lessons</span><span>09</span></div>
+</section>
+
+<!-- Page 10: Closing -->
+<section class="page" style="background:var(--navy);color:#fff;padding:1.1in 1.05in;display:flex;flex-direction:column;justify-content:space-between;">
+  <div style="display:flex;flex-direction:column;gap:0.34in;">
+    <div style="width:1.1in;height:3px;background:var(--orange);"></div>
+    <h2 style="margin:0;font-family:Lora,Georgia,serif;font-style:italic;font-weight:500;font-size:34pt;line-height:1.1;text-wrap:pretty;max-width:5.4in;">Thank you for getting this far</h2>
+    <div style="display:flex;flex-direction:column;gap:14px;font-size:12.5pt;line-height:1.66;color:var(--teal-100);max-width:5.5in;text-wrap:pretty;">
+      <p style="margin:0;">Thank you for reading all the way to the end. That means more to me than you'd probably guess, and I hope at least one of these seven was worth your time.</p>
+      <p style="margin:0;">Leadership asks a lot of us, and the hard decisions don't really get easier, they just get more familiar. My genuine hope is that you keep working through them anyway. If there's a problem you need help with, ask. I believe that the world is made better through better, more caring, more capable leaders, and you are clearly trying to be one.</p>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:18px;border:1px solid rgba(255,255,255,0.28);border-radius:16px;padding:28px 30px;">
+    <div style="font-size:9.5pt;letter-spacing:0.18em;text-transform:uppercase;color:var(--orange-light);font-weight:700;">Next step</div>
+    <div style="font-size:15pt;line-height:1.45;font-weight:600;text-wrap:pretty;">Book a free 20-minute leadership conversation.</div>
+    <div style="font-size:12pt;line-height:1.6;color:var(--teal-200);">No pitch, no prep required. Bring the thing you're stuck on.</div>
+    <div style="font-size:12.5pt;font-weight:600;color:#ffffff;">merlinleadership.com/talk</div>
+  </div>
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:0.4in;border-top:1px solid rgba(255,255,255,0.28);padding-top:20px;">
+    <div style="display:flex;flex-direction:column;gap:5px;">
+      <div style="font-size:11.5pt;font-weight:600;">Jeremy Ross</div>
+      <div style="font-size:10.5pt;color:var(--teal-200);">Founder, Merlin Leadership Collective</div>
+    </div>
+    <img src="assets/merlin-lockup.png" alt="Merlin Leadership Collective" style="width:2.1in;height:auto;display:block;filter:brightness(0) invert(1);opacity:0.9;">
+  </div>
+  <div class="footer on-dark"><span>&copy; 2026 Merlin Leadership Collective. All rights reserved. &nbsp;&middot;&nbsp; September 2026 &nbsp;&middot;&nbsp; v1.0</span><span>10</span></div>
+</section>
+
+</body>
+</html>

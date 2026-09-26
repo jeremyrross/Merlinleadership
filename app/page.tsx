@@ -1,170 +1,172 @@
-"use client";
-
+import Link from "next/link";
 import Image from "next/image";
-import Script from "next/script";
-import { useState, useRef, useEffect } from "react";
+import { getAllPosts } from "@/lib/posts";
+import { site } from "@/lib/site";
+import { Button } from "@/components/ui/Button";
+import PostCard from "@/components/PostCard";
+import NewsletterForm from "@/components/NewsletterForm";
+import portrait from "@/public/images/jeremy-ross.jpg";
 
-declare global {
-  interface Window {
-    turnstile: {
-      render: (container: string | HTMLElement, options: Record<string, unknown>) => string;
-      reset: (widgetId: string) => void;
-      execute: (widgetId: string) => void;
-    };
-  }
-}
+export const revalidate = 300;
 
-export default function Home() {
-  const [email, setEmail] = useState("");
-  const [agreed, setAgreed] = useState(false);
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [turnstileReady, setTurnstileReady] = useState(false);
-  const widgetId = useRef<string | null>(null);
-  const tokenRef = useRef<string | null>(null);
-  const containerRef = useRef<HTMLDivElement | null>(null);
+export default async function Home() {
+  const posts = await getAllPosts();
+  const [latest] = posts;
+  const recent = posts.slice(1, 5);
 
-  useEffect(() => {
-    if (turnstileReady && containerRef.current && !widgetId.current) {
-      widgetId.current = window.turnstile.render(containerRef.current, {
-        sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY,
-        theme: "dark",
-        appearance: "interaction-only",
-        callback: (token: string) => { tokenRef.current = token; },
-      });
-    }
-  }, [turnstileReady]);
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setStatus("loading");
-    try {
-      const res = await fetch("/api/subscribe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, token: tokenRef.current }),
-      });
-      if (res.ok) {
-        setStatus("success");
-        setEmail("");
-      } else {
-        setStatus("error");
-        if (widgetId.current) window.turnstile.reset(widgetId.current);
-      }
-    } catch {
-      setStatus("error");
-      if (widgetId.current) window.turnstile.reset(widgetId.current);
-    }
-  }
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${site.url}/#website`,
+        name: site.name,
+        url: site.url,
+        description: site.description,
+      },
+      {
+        "@type": "Person",
+        "@id": `${site.url}/#person`,
+        name: "Jeremy Ross",
+        jobTitle: `Founder, ${site.name}`,
+        url: `${site.url}/about`,
+        sameAs: site.linkedinUrl.startsWith("http") ? [site.linkedinUrl] : undefined,
+      },
+    ],
+  };
 
   return (
-    <main className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background */}
-      <Image
-        src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1920&q=85"
-        alt="Mountain peak"
-        fill
-        priority
-        className="object-cover object-center"
+    <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div className="absolute inset-0 bg-[#0D1B2A]/80" />
-      <div
-        className="absolute inset-0 opacity-[0.07]"
-        style={{
-          backgroundImage:
-            "radial-gradient(ellipse 80% 60% at 60% 40%, #C9A84C 0%, transparent 70%)",
-        }}
-      />
-
-      {/* Turnstile script */}
-      <Script
-        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-        strategy="lazyOnload"
-        onLoad={() => setTurnstileReady(true)}
-      />
-
-      {/* Content */}
-      <div className="relative flex flex-col items-center text-center px-6">
-        {/* Logo mark */}
-        <div className="border border-[#C9A84C]/60 w-12 h-12 flex items-center justify-center mb-10">
-          <span className="text-[#C9A84C] font-display text-lg font-medium">M</span>
-        </div>
-
-        <p className="text-[#C9A84C] text-xs tracking-[0.25em] uppercase font-light mb-6">
-          Merlin Leadership
-        </p>
-
-        <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-white leading-[1.1] mb-6">
-          Something is <span className="italic text-[#C9A84C]">coming.</span>
-        </h1>
-
-        <p className="text-white/40 text-sm tracking-widest uppercase font-light mb-12">
-          Strategic Advisory — Launching Soon
-        </p>
-
-        <p className="text-white/50 text-sm font-light mb-4">
-          Be the first to know when we launch.
-        </p>
-
-        {/* Subscribe form */}
-        {status === "success" ? (
-          <p className="text-[#C9A84C] text-sm tracking-widest uppercase font-light">
-            You&apos;re on the list.
-          </p>
-        ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col items-center w-full max-w-md gap-3">
-            <div className="flex w-full">
-              <input
-                type="email"
-                required
-                placeholder="Your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 bg-transparent border border-[#C9A84C]/40 text-white placeholder-white/30 text-sm px-4 py-3 focus:outline-none focus:border-[#C9A84C] transition-colors"
-              />
-              <button
-                type="submit"
-                disabled={status === "loading" || !agreed}
-                className="bg-[#C9A84C] text-[#0D1B2A] text-xs tracking-[0.2em] uppercase font-medium px-6 py-3 hover:bg-[#C9A84C]/90 transition-colors disabled:opacity-40"
-              >
-                {status === "loading" ? "..." : "Begin"}
-              </button>
-            </div>
-
-            {/* Consent checkbox */}
-            <label className="flex items-start gap-2 cursor-pointer text-left">
-              <input
-                type="checkbox"
-                required
-                checked={agreed}
-                onChange={(e) => setAgreed(e.target.checked)}
-                className="mt-[2px] accent-[#C9A84C]"
-              />
-              <span className="text-white/30 text-[10px] leading-relaxed">
-                I agree to receive email updates from Merlin Leadership. See our{" "}
-                <a href="/privacy" className="text-[#C9A84C]/70 hover:text-[#C9A84C] underline transition-colors">
-                  Privacy Policy
-                </a>.
+      {/* Hero — latest essay */}
+      {latest ? (
+        <section className="bg-neutral-950 text-white py-[clamp(56px,9vw,120px)] px-5 sm:px-8 md:px-12">
+          <div className="mx-auto max-w-[1120px]">
+            <div className="flex items-center gap-3 mb-7">
+              <span className="w-[26px] h-px bg-orange-500 block" aria-hidden />
+              <span className="text-xs tracking-[0.2em] uppercase text-orange-300">
+                Latest essay ·{" "}
+                {new Date(latest.frontmatter.date).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  timeZone: "UTC",
+                })}
               </span>
-            </label>
+            </div>
+            <h1 className="font-serif italic font-medium text-[clamp(2rem,5.2vw,3.6rem)] leading-[1.05] tracking-[-0.015em] max-w-[22ch] text-balance">
+              {latest.frontmatter.title}
+            </h1>
+            <p className="mt-7 text-[clamp(1rem,1.6vw,1.2rem)] text-neutral-300 max-w-[60ch]">
+              {latest.frontmatter.excerpt}
+            </p>
+            <div className="flex flex-wrap items-center gap-5 mt-10">
+              <Button href={`/posts/${latest.slug}`} variant="accent" size="lg">
+                Read the essay
+              </Button>
+              <span className="text-sm text-neutral-400">
+                {latest.readingTime}
+                {latest.frontmatter.tags?.[0] && ` · On ${latest.frontmatter.tags[0]}`}
+              </span>
+            </div>
+          </div>
+        </section>
+      ) : (
+        <section className="border-b border-neutral-200 py-20 px-5 sm:px-8 md:px-12">
+          <div className="mx-auto max-w-[1120px]">
+            <p className="text-neutral-500 text-sm">
+              The first essays are being written. Check back soon, or{" "}
+              <Link href="/about" className="text-teal-700 hover:underline">
+                read what this is
+              </Link>
+              .
+            </p>
+          </div>
+        </section>
+      )}
 
-            {/* Invisible Turnstile */}
-            <div ref={containerRef} />
-          </form>
-        )}
-        {status === "error" && (
-          <p className="text-red-400 text-xs mt-2">Something went wrong. Try again.</p>
-        )}
-      </div>
+      {/* Manifesto */}
+      <section className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(56px,8vw,104px)]">
+        <div className="grid grid-cols-1 md:grid-cols-[minmax(0,34rem)_minmax(0,24rem)] gap-8 md:gap-14 items-center">
+          <p className="font-serif italic font-medium text-[clamp(1.3rem,2.6vw,1.9rem)] leading-[1.45] text-balance">
+            A place where good leadership ideas and tools live — written
+            down, argued with, and kept useful.
+          </p>
+          <p className="border-l-2 border-orange-500 pl-6 text-lg leading-relaxed text-neutral-600">
+            It started as notes I kept sending to people who were new to
+            leading. Now they&apos;re here, where you can read them too.
+          </p>
+        </div>
+      </section>
 
-      {/* Footer */}
-      <div className="absolute bottom-0 left-0 right-0 bg-transparent px-6 py-2 flex items-center justify-end gap-4">
-        <a href="/privacy" className="text-white/30 text-[9px] tracking-widest hover:text-white/50 transition-colors">
-          Privacy Policy
-        </a>
-        <p className="text-white/30 text-[9px] tracking-widest">
-          © 2026 Merlin Leadership
-        </p>
-      </div>
+      {/* About strip */}
+      <section className="border-y border-neutral-200 bg-neutral-50">
+        <div className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(48px,7vw,88px)] grid grid-cols-1 sm:grid-cols-3 gap-8 items-start">
+          <div className="aspect-[4/5] rounded-lg overflow-hidden bg-neutral-100 max-w-[280px]">
+            <Image
+              src={portrait}
+              alt="Jeremy Ross"
+              className="w-full h-full object-cover"
+              placeholder="blur"
+            />
+          </div>
+          <div className="sm:col-span-2 min-w-0">
+            <div className="text-xs tracking-[0.2em] uppercase text-neutral-400 mb-3.5">
+              Who&apos;s writing
+            </div>
+            <p className="text-lg max-w-[56ch] text-balance">
+              I&apos;m <strong className="font-semibold">Jeremy Ross</strong>.
+              I&apos;ve spent two decades leading teams and the last several
+              helping other people do it with less noise and more nerve.{" "}
+              {site.name} is where I keep what I&apos;ve learned — essays,
+              tools, and the occasional argument with my own advice.
+            </p>
+            <Link href="/about" className="inline-block mt-5 text-sm font-semibold text-teal-700 hover:text-teal-800">
+              More about me →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Recent writing */}
+      {recent.length > 0 && (
+        <section className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(56px,8vw,104px)]">
+          <div className="flex items-baseline justify-between gap-6 mb-2">
+            <h2 className="text-2xl font-bold font-sans">Recent writing</h2>
+            <Link href="/posts" className="text-sm font-medium text-teal-700 hover:text-teal-800">
+              All essays →
+            </Link>
+          </div>
+          <div>
+            {recent.map((post) => (
+              <PostCard key={post.slug} post={post} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Email capture band */}
+      <section id="subscribe" className="border-t border-neutral-200 bg-neutral-50 scroll-mt-20">
+        <div className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(32px,5vw,56px)] grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-14 items-center">
+          <div>
+            <div className="text-xs tracking-[0.2em] uppercase text-orange-500 mb-3.5">
+              Free guide · 7 lessons
+            </div>
+            <h2 className="font-serif italic font-medium text-[clamp(1.3rem,2.6vw,1.9rem)] text-balance">
+              7 Leadership Lessons, learned in the field
+            </h2>
+            <p className="mt-4 text-base text-neutral-600 max-w-[46ch]">
+              Mostly through making mistakes. Seven moments that changed how I
+              lead, sent straight to your inbox.
+            </p>
+          </div>
+          <div>
+            <NewsletterForm />
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

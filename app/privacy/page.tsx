@@ -78,7 +78,17 @@ export default function Privacy() {
             <li>
               <strong className="text-neutral-900 font-medium">Cloudflare</strong> protects
               forms from spam (Turnstile), delivers the site, and provides
-              anonymous traffic statistics.
+              anonymous traffic statistics. The spam check runs invisibly when
+              you use a form; see Cloudflare&apos;s{" "}
+              <a
+                href="https://www.cloudflare.com/turnstile-privacy-policy/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-teal-700 hover:underline"
+              >
+                Turnstile Privacy Addendum
+              </a>
+              .
             </li>
             <li>
               <strong className="text-neutral-900 font-medium">Vercel</strong> hosts the

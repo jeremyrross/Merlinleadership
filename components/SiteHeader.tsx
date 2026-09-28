@@ -28,7 +28,7 @@ export default function SiteHeader() {
             </Link>
           ))}
           <Button href="/#subscribe" variant="primary" size="md">
-            Get the free guide
+            Get 7 free lessons
           </Button>
           <MobileMenu items={site.nav} />
         </nav>

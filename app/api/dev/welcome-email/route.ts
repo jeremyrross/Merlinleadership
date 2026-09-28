@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { buildWelcomeEmail, getWelcomeArticles } from "@/lib/welcome-email";
+import { emailLogoAttachment } from "@/lib/email-logo";
 
 // Local-only preview of the welcome email. Disabled in production.
 // /api/dev/welcome-email            -> view the email
@@ -18,7 +19,11 @@ export async function GET(req: NextRequest) {
     if (!apiKey) return NextResponse.json({ error: "RESEND_API_KEY not set" }, { status: 500 });
     // Local links would be dead in a real inbox, so test sends use the live site URL.
     const { site } = await import("@/lib/site");
-    const live = buildWelcomeEmail({ baseUrl: site.url, articles: await getWelcomeArticles() });
+    const live = buildWelcomeEmail({
+      baseUrl: site.url,
+      articles: await getWelcomeArticles(),
+      inlineLogo: true,
+    });
     const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
@@ -29,6 +34,7 @@ export async function GET(req: NextRequest) {
         subject: `[TEST] ${live.subject}`,
         html: live.html,
         text: live.text,
+        attachments: [emailLogoAttachment],
       }),
     });
     return NextResponse.json({ status: res.status, body: await res.json().catch(() => null) });

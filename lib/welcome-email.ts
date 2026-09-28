@@ -1,5 +1,6 @@
 import { getPost } from "@/lib/posts";
 import { site } from "@/lib/site";
+import { EMAIL_LOGO_CID, emailLogoAttachment } from "@/lib/email-logo";
 
 // Edit these to change the welcome email. Article slugs are looked up from
 // your posts (Notion or local), so titles and descriptions stay in sync.
@@ -40,12 +41,17 @@ const SANS = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, s
 export function buildWelcomeEmail({
   baseUrl,
   articles,
+  inlineLogo = false,
 }: {
   baseUrl: string;
   articles: WelcomeArticle[];
+  /** Reference the logo attached to the email (cid:) instead of a site URL. */
+  inlineLogo?: boolean;
 }): { subject: string; html: string; text: string } {
   const guideUrl = `${baseUrl}${welcomeConfig.guidePath}`;
-  const logoUrl = `${baseUrl}/logos/merlin-mark-transparent.png`;
+  const logoUrl = inlineLogo
+    ? `cid:${EMAIL_LOGO_CID}`
+    : `${baseUrl}/logos/merlin-mark-transparent.png`;
   const unsubscribe = `mailto:${site.email}?subject=Unsubscribe`;
   const preheader =
     "Seven moments that changed how I lead, mostly through making mistakes. Your download is inside.";
@@ -183,6 +189,7 @@ export async function sendWelcomeEmail(to: string): Promise<void> {
   const { subject, html, text } = buildWelcomeEmail({
     baseUrl: site.url,
     articles: await getWelcomeArticles(),
+    inlineLogo: true,
   });
 
   const res = await fetch("https://api.resend.com/emails", {
@@ -198,6 +205,7 @@ export async function sendWelcomeEmail(to: string): Promise<void> {
       subject,
       html,
       text,
+      attachments: [emailLogoAttachment],
       headers: {
         "List-Unsubscribe": `<mailto:${site.email}?subject=Unsubscribe>`,
       },

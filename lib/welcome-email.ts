@@ -69,8 +69,6 @@ export function buildWelcomeEmail({
     )
     .join("");
 
-  const address = site.mailingAddress ? `<br>${esc(site.mailingAddress)}` : "";
-
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -142,7 +140,7 @@ export function buildWelcomeEmail({
 
         <tr>
           <td style="background-color:#f7f7f6;border-top:1px solid #dcdcda;padding:24px 40px;">
-            <p style="margin:0;font-family:${SANS};font-size:12px;line-height:1.6;color:#737373;">You&rsquo;re receiving this because you signed up at <a href="${site.url}" style="color:#737373;">${esc(site.url.replace(/^https?:\/\//, ""))}</a>. If you&rsquo;d rather not hear from me, <a href="${unsubscribe}" style="color:#737373;">unsubscribe here</a> or reply with &ldquo;unsubscribe&rdquo;.<br>${esc(site.name)}${address}</p>
+            <p style="margin:0;font-family:${SANS};font-size:12px;line-height:1.6;color:#737373;">You&rsquo;re receiving this because you signed up at <a href="${site.url}" style="color:#737373;">${esc(site.url.replace(/^https?:\/\//, ""))}</a>. If you&rsquo;d rather not hear from me, <a href="${unsubscribe}" style="color:#737373;">unsubscribe here</a> or reply with &ldquo;unsubscribe&rdquo;.<br>${esc(site.name)}</p>
           </td>
         </tr>
 

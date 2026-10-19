@@ -9,8 +9,9 @@ export const site = {
   email: "begin@merlinleadership.com",
   linkedinUrl: "https://www.linkedin.com/in/jeremyrross/",
   // Canada's anti-spam law (CASL) requires a mailing address in marketing
-  // emails; it appears in the email footer. Kept in an env var, not in code,
-  // because this repo is public. Set MAILING_ADDRESS in .env.local and Vercel.
+  // emails. Currently NOT shown in the welcome email footer (removed by
+  // request); re-add it there once a PO box or business address is set.
+  // Kept in an env var, not in code, because this repo is public.
   mailingAddress: process.env.MAILING_ADDRESS ?? "",
   nav: [
     { label: "Home", href: "/" },

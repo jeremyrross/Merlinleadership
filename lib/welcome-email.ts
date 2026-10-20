@@ -100,7 +100,7 @@ export function buildWelcomeEmail({
           <td style="padding:40px 40px 8px 40px;">
             <h1 style="margin:0;font-family:${SERIF};font-style:italic;font-weight:500;font-size:32px;line-height:1.2;color:#1a1a19;">Thanks for joining. Your guide is ready.</h1>
             <p style="margin:22px 0 0 0;font-family:${SANS};font-size:17px;line-height:1.6;color:#1a1a19;">Hi, I&rsquo;m Jeremy. ${esc(site.name)} started as a folder of notes I kept re-sending to people. This is that folder, in public.</p>
-            <p style="margin:16px 0 0 0;font-family:${SANS};font-size:16px;line-height:1.6;color:#5b5b5a;"><strong style="color:#1a1a19;">7 Leadership Lessons</strong> is seven moments that changed how I lead &mdash; mostly through making mistakes.</p>
+            <p style="margin:16px 0 0 0;font-family:${SANS};font-size:16px;line-height:1.6;color:#5b5b5a;"><strong style="color:#1a1a19;">7 Leadership Lessons</strong> is seven moments that changed how I lead, mostly through making mistakes.</p>
           </td>
         </tr>
 
@@ -133,8 +133,8 @@ export function buildWelcomeEmail({
 
         <tr>
           <td style="padding:14px 40px 40px 40px;">
-            <p style="margin:0;font-family:${SANS};font-size:16px;line-height:1.6;color:#5b5b5a;">If something in here is wrong, just hit reply and tell me. I&rsquo;d rather fix it than defend it.</p>
-            <p style="margin:18px 0 0 0;font-family:${SERIF};font-style:italic;font-size:20px;color:#1a1a19;">&mdash; Jeremy</p>
+            <p style="margin:0;font-family:${SANS};font-size:16px;line-height:1.6;color:#5b5b5a;">Got a leadership challenge you&rsquo;re working through? Reply and tell me about it. I read every one.</p>
+            <p style="margin:18px 0 0 0;font-family:${SERIF};font-style:italic;font-size:20px;color:#1a1a19;">Jeremy</p>
           </td>
         </tr>
 
@@ -156,7 +156,7 @@ export function buildWelcomeEmail({
     "",
     `Hi, I'm Jeremy. ${site.name} started as a folder of notes I kept re-sending to people. This is that folder, in public.`,
     "",
-    "7 Leadership Lessons is seven moments that changed how I lead — mostly through making mistakes.",
+    "7 Leadership Lessons is seven moments that changed how I lead, mostly through making mistakes.",
     "",
     `Download the PDF: ${guideUrl}`,
     "",
@@ -166,9 +166,9 @@ export function buildWelcomeEmail({
           ...articles.flatMap((a) => [`- ${a.title}`, `  ${a.excerpt}`, `  ${baseUrl}${a.path}`, ""]),
         ]
       : []),
-    "If something in here is wrong, just hit reply and tell me. I'd rather fix it than defend it.",
+    "Got a leadership challenge you're working through? Reply and tell me about it. I read every one.",
     "",
-    "— Jeremy",
+    "Jeremy",
     "",
     "---",
     `You're receiving this because you signed up at ${site.url}. To unsubscribe, reply with "unsubscribe" or email ${site.email}.`,

@@ -161,7 +161,7 @@ export default async function PostPage({
 
         <div className="mt-14 pt-9 border-t border-neutral-200 flex flex-wrap gap-5 items-center justify-between">
           <p className="text-base text-neutral-600 max-w-[34ch]">
-            Get the next essay, plus <em>7 Leadership Lessons</em> — free,
+            Get the next essay and a free copy of <em>7 Leadership Lessons</em>,
             straight to your inbox.
           </p>
           <Button href="/#subscribe" variant="primary" size="lg">

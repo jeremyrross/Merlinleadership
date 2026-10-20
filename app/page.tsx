@@ -91,8 +91,8 @@ export default async function Home() {
       <section className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(56px,8vw,104px)]">
         <div className="grid grid-cols-1 md:grid-cols-[minmax(0,34rem)_minmax(0,24rem)] gap-8 md:gap-14 items-center">
           <p className="font-serif italic font-medium text-[clamp(1.3rem,2.6vw,1.9rem)] leading-[1.45] text-balance">
-            A place where good leadership ideas and tools live — written
-            down, argued with, and kept useful.
+            A place where good leadership ideas and tools are written down,
+            tested, and kept useful.
           </p>
           <p className="border-l-2 border-orange-500 pl-6 text-lg leading-relaxed text-neutral-600">
             It started as notes I kept sending to people who were new to
@@ -120,7 +120,7 @@ export default async function Home() {
               I&apos;m <strong className="font-semibold">Jeremy Ross</strong>.
               I&apos;ve spent two decades leading teams and the last several
               helping other people do it with less noise and more nerve.{" "}
-              {site.name} is where I keep what I&apos;ve learned — essays,
+              {site.name} is where I keep what I&apos;ve learned: essays,
               tools, and the occasional argument with my own advice.
             </p>
             <Link href="/about" className="inline-block mt-5 text-sm font-semibold text-teal-700 hover:text-teal-800">

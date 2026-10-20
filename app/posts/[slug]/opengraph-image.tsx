@@ -68,7 +68,7 @@ export default async function Image({
             fontFamily: "Helvetica, Arial, sans-serif",
           }}
         >
-          <span style={{ color: "#0097b2" }}>—</span>
+          <span style={{ display: "flex", width: 32, height: 3, background: "#0097b2" }} />
           {tags.length > 0 ? tags.slice(0, 3).join("  ·  ") : site.tagline}
         </div>
       </div>

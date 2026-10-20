@@ -74,7 +74,7 @@ export default function NewsletterForm() {
 
       {status === "success" ? (
         <p className="text-teal-700 font-medium text-sm">
-          You&apos;re on the list — check your inbox shortly.
+          You&apos;re on the list. Check your inbox shortly.
         </p>
       ) : (
         <form onSubmit={handleSubmit} className="flex flex-col gap-3">

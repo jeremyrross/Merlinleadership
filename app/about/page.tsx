@@ -23,7 +23,7 @@ const pillars = [
   {
     no: "03",
     title: "Hard conversations",
-    body: "Conflict, feedback, and promotions — the moments where leadership is a specific sentence you have to say out loud.",
+    body: "Conflict, feedback, and promotions: the moments where leadership is a specific sentence you have to say out loud.",
   },
 ];
 
@@ -55,7 +55,7 @@ export default function AboutPage() {
             <p className="mt-5 text-base text-neutral-600 text-balance">
               I write because writing is how I find out what I actually think,
               and because the advice I got as a new manager was mostly
-              slogans. If something here is wrong, tell me — I&apos;d rather
+              slogans. If something here is wrong, tell me. I&apos;d rather
               fix it than defend it.
             </p>
             <p className="mt-5 text-base text-neutral-600 text-balance">

@@ -25,7 +25,7 @@ export async function generateMetadata({
   if (!name) return {};
   return {
     title: `${name}`,
-    description: `Entries tagged “${name}” — from Merlin Leadership Collective.`,
+    description: `Entries tagged “${name}” from Merlin Leadership Collective.`,
   };
 }
 

@@ -90,7 +90,7 @@ export default function TalkRequestForm() {
       />
       <Textarea
         label="What are you interested in?"
-        placeholder="Optional — a sentence or two is plenty."
+        placeholder="Optional. A sentence or two is plenty."
         rows={4}
         value={message}
         onChange={(e) => setMessage(e.target.value)}

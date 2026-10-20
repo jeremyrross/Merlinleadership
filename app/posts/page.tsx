@@ -6,7 +6,7 @@ import { TagLink } from "@/components/ui/Tag";
 export const metadata: Metadata = {
   title: "Writing",
   description:
-    "Essays on leading people — delegation, attention, conflict, and the quiet mechanics of trust.",
+    "Essays on leading people by Jeremy Ross.",
 };
 
 export default async function PostsPage({
@@ -29,10 +29,6 @@ export default async function PostsPage({
       <h1 className="font-serif italic font-medium text-[clamp(2rem,4.5vw,3rem)]">
         Writing
       </h1>
-      <p className="mt-5 text-lg text-neutral-600 max-w-[56ch]">
-        Essays on leading people — delegation, attention, conflict, and the
-        quiet mechanics of trust. Roughly one a fortnight.
-      </p>
 
       {tags.length > 0 && (
         <div className="flex flex-wrap gap-2.5 mt-9 mb-2">

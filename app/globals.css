@@ -55,14 +55,19 @@ body {
   border-top: 1px solid var(--color-border);
 }
 
-.prose-merlin h3 {
-  font-size: 1.4rem;
-  margin-top: 2em;
+/* Section headers double as scroll anchors, so they need to clearly outrank
+   body text (1.125rem) and get room above them. */
+.prose-merlin h3,
+.prose-merlin h4 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-top: 2.2em;
+  margin-bottom: -0.2em;
 }
 
 .prose-merlin h4 {
-  font-size: 1.25rem;
-  margin-top: 1.8em;
+  font-size: 1.5rem;
 }
 
 .prose-merlin a {

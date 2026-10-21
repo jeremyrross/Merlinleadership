@@ -46,24 +46,33 @@ export default function AboutPage() {
               Jeremy Ross
             </h1>
             <p className="mt-6 text-lg text-balance">
-              I&apos;ve led teams for twenty years, long enough to remember
-              exactly how it felt to be a brand-new manager, and long enough
-              to have made most of the mistakes worth writing about.{" "}
+              I&apos;ve led teams for twenty years. Long enough to have made
+              most of the mistakes worth writing about, and long enough to
+              have coached plenty of new managers through the same ones.{" "}
               {site.name} started as a folder of notes I kept re-sending to
               people. This is that folder, in public.
+            </p>
+            <p className="mt-5 text-base text-neutral-600 text-balance">
+              Those years on the ground taught me how organizations actually
+              run, and where they get stuck. Now my focus is the wider view:
+              operational strategy, organizational transformation, change
+              management, and building leadership capability that lets a
+              business grow without wearing out its people.
+            </p>
+            <p className="mt-5 text-base text-neutral-600 text-balance">
+              I complete my Executive MBA in Innovation Leadership at the
+              University of Fredericton in November 2026. In practice, that
+              means I help organizations optimize and transform for growth.
+              I also hold
+              certificates in Organizational Leadership from Northwestern
+              University and in Strategic Management and Innovation from
+              Copenhagen Business School.
             </p>
             <p className="mt-5 text-base text-neutral-600 text-balance">
               I write because writing is how I find out what I actually think,
               and because the advice I got as a new manager was mostly
               slogans. If something here is wrong, tell me. I&apos;d rather
               fix it than defend it.
-            </p>
-            <p className="mt-5 text-base text-neutral-600 text-balance">
-              I&apos;ve also gone back to school along the way: certificates in
-              Organizational Leadership from Northwestern University and in
-              Strategic Management and Innovation from Copenhagen Business
-              School, and this December I finish my Executive MBA at the
-              University of Fredericton.
             </p>
             <div className="flex flex-wrap gap-2.5 mt-8">
               <Button href={`mailto:${site.email}`} variant="primary" size="lg">

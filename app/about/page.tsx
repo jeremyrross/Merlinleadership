@@ -9,24 +9,6 @@ export const metadata: Metadata = {
   description: site.description,
 };
 
-const pillars = [
-  {
-    no: "01",
-    title: "Trust, mechanically",
-    body: "Delegation, decision rights, and what you are actually transferring when you let go of something.",
-  },
-  {
-    no: "02",
-    title: "Attention as budget",
-    body: "Meetings, interruptions, and the unglamorous work of protecting a team's ability to think.",
-  },
-  {
-    no: "03",
-    title: "Hard conversations",
-    body: "Conflict, feedback, and promotions: the moments where leadership is a specific sentence you have to say out loud.",
-  },
-];
-
 export default function AboutPage() {
   return (
     <main>
@@ -82,23 +64,6 @@ export default function AboutPage() {
                 LinkedIn
               </Button>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t border-neutral-200 bg-neutral-50">
-        <div className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(48px,7vw,88px)]">
-          <h2 className="text-2xl font-bold mb-8">What I write about</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-10">
-            {pillars.map((pillar) => (
-              <div key={pillar.no}>
-                <div className="text-xs tracking-[0.2em] uppercase text-orange-500 mb-3">
-                  {pillar.no}
-                </div>
-                <h3 className="text-lg font-bold mb-2.5">{pillar.title}</h3>
-                <p className="text-base text-neutral-600">{pillar.body}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>

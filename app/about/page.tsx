@@ -46,28 +46,6 @@ export default function AboutPage() {
               get stuck.
             </p>
             <p className="mt-5 text-base text-neutral-600 text-balance">
-              Peter Drucker wrote that every organization needs performance in
-              three areas. That&apos;s where my work focuses:
-            </p>
-            <ul className="mt-4 space-y-3 text-base text-neutral-600">
-              <li>
-                <strong className="font-semibold text-neutral-900">Results now.</strong>{" "}
-                Matching the talent you have to the problems that matter most,
-                so effort turns into outcomes.
-              </li>
-              <li>
-                <strong className="font-semibold text-neutral-900">Standards that hold.</strong>{" "}
-                Closing the leadership gaps that let expectations drift, so
-                clarity and accountability don&apos;t depend on the owner being
-                in the room.
-              </li>
-              <li>
-                <strong className="font-semibold text-neutral-900">Leaders for what&apos;s next.</strong>{" "}
-                Building the bench, so the business can grow without wearing
-                out its people.
-              </li>
-            </ul>
-            <p className="mt-5 text-base text-neutral-600 text-balance">
               I hold an Executive MBA in Innovation Leadership from the
               University of Fredericton, and certificates in Organizational
               Leadership from Northwestern University and in Strategic

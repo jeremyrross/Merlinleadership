@@ -68,9 +68,8 @@ export default function AboutPage() {
               </li>
             </ul>
             <p className="mt-5 text-base text-neutral-600 text-balance">
-              My Executive MBA in Innovation Leadership from the University of
-              Fredericton included a capstone certificate from Columbia
-              University. I also hold certificates in Organizational
+              I hold an Executive MBA in Innovation Leadership from the
+              University of Fredericton, and certificates in Organizational
               Leadership from Northwestern University and in Strategic
               Management and Innovation from Copenhagen Business School.
             </p>

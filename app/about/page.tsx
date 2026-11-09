@@ -28,33 +28,56 @@ export default function AboutPage() {
               Jeremy Ross
             </h1>
             <p className="mt-6 text-lg text-balance">
-              I&apos;ve led teams for twenty years. Long enough to have made
-              most of the mistakes worth writing about, and long enough to
-              have coached plenty of new managers through the same ones.{" "}
+              I help owners and leadership teams get more from their people
+              by getting more from their leaders.
+            </p>
+            <p className="mt-5 text-base text-neutral-600 text-balance">
+              Most businesses I talk to don&apos;t have a talent problem. They
+              have a leadership problem that looks like one: turnover,
+              managers who relay instead of lead, owners pulled back into
+              problems that should be solved two levels down.
+            </p>
+            <p className="mt-5 text-base text-neutral-600 text-balance">
+              I&apos;ve spent more than twenty years in leadership, including
+              over a decade leading teams at Apple and at La Maison Simons,
+              one of Canada&apos;s oldest family-owned retailers. That&apos;s
+              where I learned how organizations actually run, and where they
+              get stuck.
+            </p>
+            <p className="mt-5 text-base text-neutral-600 text-balance">
+              Peter Drucker wrote that every organization needs performance in
+              three areas. That&apos;s where my work focuses:
+            </p>
+            <ul className="mt-4 space-y-3 text-base text-neutral-600">
+              <li>
+                <strong className="font-semibold text-neutral-900">Results now.</strong>{" "}
+                Matching the talent you have to the problems that matter most,
+                so effort turns into outcomes.
+              </li>
+              <li>
+                <strong className="font-semibold text-neutral-900">Standards that hold.</strong>{" "}
+                Closing the leadership gaps that let expectations drift, so
+                clarity and accountability don&apos;t depend on the owner being
+                in the room.
+              </li>
+              <li>
+                <strong className="font-semibold text-neutral-900">Leaders for what&apos;s next.</strong>{" "}
+                Building the bench, so the business can grow without wearing
+                out its people.
+              </li>
+            </ul>
+            <p className="mt-5 text-base text-neutral-600 text-balance">
+              My Executive MBA in Innovation Leadership from the University of
+              Fredericton included a capstone certificate from Columbia
+              University. I also hold certificates in Organizational
+              Leadership from Northwestern University and in Strategic
+              Management and Innovation from Copenhagen Business School.
+            </p>
+            <p className="mt-5 text-base text-neutral-600 text-balance">
               {site.name} started as a folder of notes I kept re-sending to
-              people. This is that folder, in public.
-            </p>
-            <p className="mt-5 text-base text-neutral-600 text-balance">
-              Those years on the ground taught me how organizations actually
-              run, and where they get stuck. Now my focus is the wider view:
-              operational strategy, organizational transformation, change
-              management, and building leadership capability that lets a
-              business grow without wearing out its people.
-            </p>
-            <p className="mt-5 text-base text-neutral-600 text-balance">
-              I complete my Executive MBA in Innovation Leadership at the
-              University of Fredericton in November 2026. In practice, that
-              means I help organizations optimize and transform for growth.
-              I also hold
-              certificates in Organizational Leadership from Northwestern
-              University and in Strategic Management and Innovation from
-              Copenhagen Business School.
-            </p>
-            <p className="mt-5 text-base text-neutral-600 text-balance">
-              I write because writing is how I find out what I actually think,
-              and because the advice I got as a new manager was mostly
-              slogans. If something here is wrong, tell me. I&apos;d rather
-              fix it than defend it.
+              new managers. The essays here are that folder, in public. If
+              something&apos;s wrong, tell me. I&apos;d rather fix it than
+              defend it.
             </p>
             <div className="flex flex-wrap gap-2.5 mt-8">
               <Button href={`mailto:${site.email}`} variant="primary" size="lg">

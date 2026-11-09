@@ -28,13 +28,14 @@ export default function AboutPage() {
               Jeremy Ross
             </h1>
             <p className="mt-6 text-lg text-balance">
-              I help owners and leadership teams get more from their people
-              by getting more from their leaders.
+              I help owners and organizations deliver results today and build
+              the leaders and systems to keep winning tomorrow.
             </p>
             <p className="mt-5 text-base text-neutral-600 text-balance">
               Most businesses I talk to don&apos;t have a talent problem. They
               have a leadership problem that looks like one: turnover,
-              managers who relay instead of lead, owners pulled back into
+              managers who pass problems up instead of solving them, owners
+              pulled back into
               problems that should be solved two levels down.
             </p>
             <p className="mt-5 text-base text-neutral-600 text-balance">

@@ -78,10 +78,10 @@ export default function AboutPage() {
               performs at its best because its leaders do.
             </p>
             <p className="mt-5 text-base text-neutral-600 text-balance">
-              I hold an Executive MBA in Innovation Leadership from the
-              University of Fredericton, and certificates in Organizational
-              Leadership from Northwestern University and in Strategic
-              Management and Innovation from Copenhagen Business School.
+              I pair my experience with formal training in innovation and
+              strategy, including an Executive MBA in Innovation Leadership
+              from the University of Fredericton and certificates from
+              Northwestern University and Copenhagen Business School.
             </p>
             <p className="mt-5 text-base text-neutral-600 text-balance">
               {site.name} is built on a simple belief: leaders get better

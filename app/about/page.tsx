@@ -28,34 +28,68 @@ export default function AboutPage() {
               Jeremy Ross
             </h1>
             <p className="mt-6 text-lg text-balance">
-              I help owners and organizations deliver results today and build
-              the leaders and systems to keep winning tomorrow.
+              I help owners and leadership teams deliver results today while
+              building the leaders and systems that keep the business growing
+              tomorrow.
             </p>
             <p className="mt-5 text-base text-neutral-600 text-balance">
-              Most businesses I talk to don&apos;t have a talent problem. They
-              have a leadership problem that looks like one: turnover,
-              managers who pass problems up instead of solving them, owners
-              pulled back into
-              problems that should be solved two levels down.
+              Most organizations I work with don&apos;t have a talent problem.
+              They have a leadership gap that looks like one: turnover that
+              keeps repeating, managers who pass problems up instead of solving
+              them, and owners who can&apos;t get out of the day-to-day long
+              enough to lead where the business goes next.
             </p>
             <p className="mt-5 text-base text-neutral-600 text-balance">
               I&apos;ve spent more than twenty years in leadership, including
               over a decade leading teams at Apple and at La Maison Simons,
               one of Canada&apos;s oldest family-owned retailers. That&apos;s
-              where I learned how organizations actually run, and where they
-              get stuck.
+              where I learned how organizations actually run, where they get
+              stuck, and what it takes to get them moving again.
             </p>
             <p className="mt-5 text-base text-neutral-600 text-balance">
-              I hold an Executive MBA in Innovation Leadership from the
-              University of Fredericton, and certificates in Organizational
+              I work with owner-led businesses that have grown past the point
+              where one person can lead everything. My work focuses on four
+              areas:
+            </p>
+            <ul className="mt-4 space-y-3 text-base text-neutral-600 list-disc pl-5 marker:text-teal-700">
+              <li>
+                <strong className="font-semibold text-neutral-800">Leadership development:</strong>{" "}
+                building the layer of leaders a growing business needs to keep
+                moving.
+              </li>
+              <li>
+                <strong className="font-semibold text-neutral-800">Innovation and growth strategy:</strong>{" "}
+                finding the problems worth solving and testing new ideas before
+                betting the business on them.
+              </li>
+              <li>
+                <strong className="font-semibold text-neutral-800">Innovation culture:</strong>{" "}
+                creating an environment where people bring ideas forward
+                instead of waiting to be told.
+              </li>
+              <li>
+                <strong className="font-semibold text-neutral-800">Leading change and scale:</strong>{" "}
+                guiding the business through growth and transformation without
+                losing what made it work.
+              </li>
+            </ul>
+            <p className="mt-5 text-base text-neutral-600 text-balance">
+              Wherever we start, the goal is the same: an organization that
+              performs at its best because its leaders do.
+            </p>
+            <p className="mt-5 text-base text-neutral-600 text-balance">
+              I&apos;m completing an Executive MBA in Innovation Leadership at
+              the University of Fredericton, which includes a certificate from
+              Columbia University. I also hold certificates in Organizational
               Leadership from Northwestern University and in Strategic
               Management and Innovation from Copenhagen Business School.
             </p>
             <p className="mt-5 text-base text-neutral-600 text-balance">
-              {site.name} started as a folder of notes I kept re-sending to
-              new managers. The essays here are that folder, in public. If
-              something&apos;s wrong, tell me. I&apos;d rather fix it than
-              defend it.
+              {site.name} is built on a simple belief: leaders get better
+              when they surround themselves with other leaders. The essays here
+              are where I share what I&apos;ve learned. The work is where we put
+              it into practice together. If your business is ready to lead
+              differently, let&apos;s talk.
             </p>
             <div className="flex flex-wrap gap-2.5 mt-8">
               <Button href={`mailto:${site.email}`} variant="primary" size="lg">

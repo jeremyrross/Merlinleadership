@@ -114,14 +114,20 @@ export default async function Home() {
           </div>
           <div className="sm:col-span-2 min-w-0">
             <div className="text-xs tracking-[0.2em] uppercase text-neutral-400 mb-3.5">
-              Who&apos;s writing
+              Who you&apos;ll work with
             </div>
             <p className="text-lg max-w-[56ch] text-balance">
-              I&apos;m <strong className="font-semibold">Jeremy Ross</strong>.
-              I&apos;ve spent two decades leading teams and the last several
-              helping other people do it with less noise and more nerve.{" "}
-              {site.name} is where I keep what I&apos;ve learned: essays,
-              tools, and the occasional argument with my own advice.
+              Most businesses that stall don&apos;t have a strategy problem.
+              They have a leadership problem that shows up as turnover,
+              disengaged teams and owners stuck working in the business when
+              they should be leading where it goes next.
+            </p>
+            <p className="text-lg max-w-[56ch] text-balance mt-4">
+              I&apos;m <strong className="font-semibold">Jeremy Ross</strong>,
+              and I&apos;ve spent over twenty years developing leaders and the
+              teams around them, including more than a decade inside respected
+              global and Canadian brands. {site.name} brings that experience to
+              growing organizations that are ready to lead differently.
             </p>
             <Link href="/about" className="inline-block mt-5 text-sm font-semibold text-teal-700 hover:text-teal-800">
               More about me →

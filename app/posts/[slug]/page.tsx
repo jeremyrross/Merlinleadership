@@ -159,6 +159,21 @@ export default async function PostPage({
           <AuthorBox author={author} />
         </div>
 
+        <div className="mt-10 rounded-xl bg-neutral-950 text-white p-7 sm:p-9 flex flex-wrap gap-5 items-center justify-between">
+          <div className="max-w-[40ch]">
+            <p className="font-serif italic text-2xl leading-snug">
+              Working through something like this?
+            </p>
+            <p className="mt-2 text-neutral-300">
+              Tell me what&apos;s going on with your team. I read and reply to
+              every note myself.
+            </p>
+          </div>
+          <Button href="/talk" variant="accent" size="lg">
+            Let&apos;s talk
+          </Button>
+        </div>
+
         <div className="mt-14 pt-9 border-t border-neutral-200 flex flex-wrap gap-5 items-center justify-between">
           <p className="text-base text-neutral-600 max-w-[34ch]">
             Get the next essay and a free copy of <em>7 Leadership Lessons</em>,

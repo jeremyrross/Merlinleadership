@@ -91,7 +91,10 @@ export default function AboutPage() {
               differently, let&apos;s talk.
             </p>
             <div className="flex flex-wrap gap-2.5 mt-8">
-              <Button href={`mailto:${site.email}`} variant="primary" size="lg">
+              <Button href="/talk" variant="primary" size="lg">
+                Let&apos;s talk
+              </Button>
+              <Button href={`mailto:${site.email}`} variant="secondary" size="lg">
                 Email me
               </Button>
               <Button href={site.linkedinUrl} variant="secondary" size="lg">

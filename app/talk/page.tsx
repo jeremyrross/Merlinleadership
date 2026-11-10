@@ -4,7 +4,7 @@ import TalkRequestForm from "@/components/TalkRequestForm";
 export const metadata: Metadata = {
   title: "Let's talk",
   description:
-    "Book a free 20-minute leadership conversation. No pitch, no prep required.",
+    "Reach out to Jeremy Ross directly. Tell me what's going on, and if it's something I can help with, we'll set up a conversation.",
 };
 
 export default function TalkPage() {
@@ -14,10 +14,11 @@ export default function TalkPage() {
         <div className="mx-auto max-w-[640px] text-center">
           <span className="inline-block w-[26px] h-px bg-orange-500 mb-7" aria-hidden />
           <h1 className="font-serif italic font-medium text-[clamp(1.8rem,4.5vw,2.8rem)] leading-[1.1] text-balance">
-            Book a free 20-minute leadership conversation.
+            Let&apos;s talk.
           </h1>
           <p className="mt-5 text-lg text-neutral-300 text-balance">
-            No pitch, no prep required. Bring the thing you&apos;re stuck on.
+            Tell me what&apos;s going on. If it&apos;s something I can help
+            with, we&apos;ll set up a time to talk. No pitch, no prep required.
           </p>
         </div>
       </section>
@@ -26,11 +27,11 @@ export default function TalkPage() {
         <div className="mx-auto max-w-[520px]">
           <div className="rounded-xl border border-neutral-200 shadow-lg p-8 sm:p-10">
             <div className="text-xs tracking-[0.2em] uppercase text-orange-500 mb-2">
-              Limited spots
+              Request to connect
             </div>
             <p className="text-sm text-neutral-500 mb-7">
-              I read every submission myself, so I&apos;m working through
-              them in order.
+              I read and reply to every note myself, usually within two
+              business days.
             </p>
             <TalkRequestForm />
           </div>

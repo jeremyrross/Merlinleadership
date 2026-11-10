@@ -42,19 +42,20 @@ function shell(bodyHtml: string): string {
 </html>`;
 }
 
-export type TalkRequest = { name: string; email: string; message: string };
+export type TalkRequest = { name: string; email: string; company?: string; message: string };
 
 export function buildTalkNotificationEmail(req: TalkRequest): {
   subject: string;
   html: string;
   text: string;
 } {
-  const subject = `Talk interest: ${req.name || req.email}`;
+  const subject = `Request to connect: ${req.name || req.email}${req.company ? ` (${req.company})` : ""}`;
   const html = shell(`
-    <h1 style="margin:0 0 20px 0;font-family:${SERIF};font-style:italic;font-weight:500;font-size:24px;color:#1a1a19;">New interest via /talk</h1>
+    <h1 style="margin:0 0 20px 0;font-family:${SERIF};font-style:italic;font-weight:500;font-size:24px;color:#1a1a19;">New request to connect</h1>
     <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="font-family:${SANS};font-size:15px;color:#1a1a19;">
       <tr><td style="padding:6px 0;color:#737373;width:90px;">Name</td><td style="padding:6px 0;">${esc(req.name || "—")}</td></tr>
       <tr><td style="padding:6px 0;color:#737373;">Email</td><td style="padding:6px 0;"><a href="mailto:${esc(req.email)}" style="color:#08677b;">${esc(req.email)}</a></td></tr>
+      ${req.company ? `<tr><td style="padding:6px 0;color:#737373;">Company</td><td style="padding:6px 0;">${esc(req.company)}</td></tr>` : ""}
     </table>
     ${
       req.message
@@ -64,7 +65,8 @@ export function buildTalkNotificationEmail(req: TalkRequest): {
     <p style="margin:24px 0 0 0;font-family:${SANS};font-size:14px;color:#5b5b5a;">Reply to this email to reach them directly.</p>
   `);
   const text = [
-    `New /talk interest from ${req.name || "(no name)"} <${req.email}>`,
+    `New request to connect from ${req.name || "(no name)"} <${req.email}>`,
+    ...(req.company ? [`Company or role: ${req.company}`] : []),
     "",
     req.message || "(no message)",
   ].join("\n");
@@ -77,21 +79,21 @@ export function buildTalkConfirmationEmail(req: TalkRequest): {
   text: string;
 } {
   const firstName = req.name.split(" ")[0] || "";
-  const subject = "Thanks for your interest";
+  const subject = "Thanks for reaching out";
   const html = shell(`
     <h1 style="margin:0 0 18px 0;font-family:${SERIF};font-style:italic;font-weight:500;font-size:24px;color:#1a1a19;">${firstName ? `Thanks, ${esc(firstName)}.` : "Thanks for reaching out."}</h1>
-    <p style="margin:0 0 14px 0;font-family:${SANS};font-size:16px;line-height:1.6;color:#2c2c2b;">There's been more interest in these conversations than I expected. I'm working through requests in the order they came in, and I'll reach out when I get to yours.</p>
-    <p style="margin:0;font-family:${SANS};font-size:16px;line-height:1.6;color:#2c2c2b;">Thanks for your patience &mdash; and for wanting to talk it through in the first place.</p>
-    <p style="margin:24px 0 0 0;font-family:${SERIF};font-style:italic;font-size:18px;color:#1a1a19;">&mdash; Jeremy</p>
+    <p style="margin:0 0 14px 0;font-family:${SANS};font-size:16px;line-height:1.6;color:#2c2c2b;">I got your note, and I'll reply personally within two business days.</p>
+    <p style="margin:0;font-family:${SANS};font-size:16px;line-height:1.6;color:#2c2c2b;">If anything else comes to mind before then, just reply to this email. It comes straight to me.</p>
+    <p style="margin:24px 0 0 0;font-family:${SERIF};font-style:italic;font-size:18px;color:#1a1a19;">Jeremy</p>
   `);
   const text = [
-    firstName ? `Thanks, ${req.name}.` : "Thanks for reaching out.",
+    firstName ? `Thanks, ${firstName}.` : "Thanks for reaching out.",
     "",
-    "There's been more interest in these conversations than I expected. I'm working through requests in the order they came in, and I'll reach out when I get to yours.",
+    "I got your note, and I'll reply personally within two business days.",
     "",
-    "Thanks for your patience — and for wanting to talk it through in the first place.",
+    "If anything else comes to mind before then, just reply to this email. It comes straight to me.",
     "",
-    "— Jeremy",
+    "Jeremy",
   ].join("\n");
   return { subject, html, text };
 }

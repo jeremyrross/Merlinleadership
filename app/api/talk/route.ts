@@ -5,13 +5,16 @@ import { clientIp, hashKey, withinLimit } from "@/lib/rate-limit";
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(req: NextRequest) {
-  const { name, email, message, token } = await req.json();
+  const { name, email, company = "", message, token } = await req.json();
 
   if (typeof name !== "string" || name.length > 200) {
     return NextResponse.json({ error: "Invalid name" }, { status: 400 });
   }
   if (typeof email !== "string" || !EMAIL_PATTERN.test(email) || email.length > 254) {
     return NextResponse.json({ error: "Invalid email" }, { status: 400 });
+  }
+  if (typeof company !== "string" || company.length > 200) {
+    return NextResponse.json({ error: "Invalid company" }, { status: 400 });
   }
   if (typeof message !== "string" || message.length > 4000) {
     return NextResponse.json({ error: "Invalid message" }, { status: 400 });
@@ -46,13 +49,19 @@ export async function POST(req: NextRequest) {
   }
 
   const trimmedName = name.trim();
+  const trimmedCompany = company.trim();
   const trimmedMessage = message.trim();
 
   // Forward to Formspree: this is the record of every /talk submission.
   const formRes = await fetch("https://formspree.io/f/mvkgrwzp", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name: trimmedName, email, message: trimmedMessage }),
+    body: JSON.stringify({
+      name: trimmedName,
+      email,
+      company: trimmedCompany,
+      message: trimmedMessage,
+    }),
   });
 
   if (!formRes.ok) {
@@ -61,7 +70,12 @@ export async function POST(req: NextRequest) {
 
   // The submission is already recorded; a failed email must not undo that.
   try {
-    await sendTalkRequestEmails({ name: trimmedName, email, message: trimmedMessage });
+    await sendTalkRequestEmails({
+      name: trimmedName,
+      email,
+      company: trimmedCompany,
+      message: trimmedMessage,
+    });
   } catch (error) {
     console.error("[talk] failed to send:", error);
   }

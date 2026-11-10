@@ -24,7 +24,8 @@ export default function Privacy() {
           <p className="mt-3">
             <strong className="text-neutral-900 font-medium">If you use the /talk form</strong>,
             we collect your email address, and, if you choose to give them,
-            your name and a short note about what you&apos;re interested in.
+            your name, your company or role, and a short note about what
+            you&apos;d like to talk about.
           </p>
           <p className="mt-3">
             <strong className="text-neutral-900 font-medium">When you visit</strong> the

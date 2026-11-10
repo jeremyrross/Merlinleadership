@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/Button";
 export default function TalkRequestForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [company, setCompany] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
     "idle"
@@ -38,7 +39,7 @@ export default function TalkRequestForm() {
       const res = await fetch("/api/talk", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message, token: tokenRef.current }),
+        body: JSON.stringify({ name, email, company, message, token: tokenRef.current }),
       });
       if (res.ok) {
         setStatus("success");
@@ -56,12 +57,11 @@ export default function TalkRequestForm() {
     return (
       <div className="text-center py-6">
         <p className="font-serif italic text-2xl text-neutral-900 mb-3">
-          {name.split(" ")[0] ? `Thanks, ${name.split(" ")[0]}.` : "Thanks for your interest."}
+          {name.trim().split(" ")[0] ? `Thanks, ${name.trim().split(" ")[0]}.` : "Thanks for reaching out."}
         </p>
         <p className="text-neutral-600 max-w-[40ch] mx-auto">
-          There&apos;s been more interest in these than I expected. I&apos;m
-          working through requests in order, and I&apos;ll reach out when I
-          get to yours.
+          Your note is in. I&apos;ll reply personally within two business
+          days.
         </p>
       </div>
     );
@@ -77,6 +77,7 @@ export default function TalkRequestForm() {
 
       <Input
         label="Your name"
+        required
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
@@ -88,9 +89,15 @@ export default function TalkRequestForm() {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
+      <Input
+        label="Company or role"
+        placeholder="Optional"
+        value={company}
+        onChange={(e) => setCompany(e.target.value)}
+      />
       <Textarea
-        label="What are you interested in?"
-        placeholder="Optional. A sentence or two is plenty."
+        label="What's going on?"
+        placeholder="A challenge on your team, a question, or just hello. A few sentences is plenty."
         rows={4}
         value={message}
         onChange={(e) => setMessage(e.target.value)}
@@ -99,7 +106,7 @@ export default function TalkRequestForm() {
       <div ref={containerRef} />
 
       <Button type="submit" variant="primary" size="lg" fullWidth disabled={status === "loading"}>
-        {status === "loading" ? "Sending…" : "I'm interested"}
+        {status === "loading" ? "Sending…" : "Send request"}
       </Button>
 
       {status === "error" && (

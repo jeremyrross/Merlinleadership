@@ -14,7 +14,7 @@ export const authors: Record<string, Author> = {
   merlin: {
     name: "Jeremy Ross",
     title: "Merlin Leadership Collective",
-    bio: "Two decades leading teams, and the last several helping other people do it with less noise and more nerve.",
+    bio: "Over twenty years developing leaders and the teams around them. I help owner-led businesses build the leadership to keep growing.",
     image: portrait,
   },
 };

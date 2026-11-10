@@ -1,9 +1,9 @@
 export const site = {
   name: "Merlin Leadership Collective",
   shortName: "MLC",
-  tagline: "Essays and tools for leading people",
+  tagline: "Results today. Leaders for tomorrow.",
   description:
-    "Merlin Leadership Collective is Jeremy Ross's home for leadership essays and tools. It's the thinking he'd want if he were leading a team this week.",
+    "Jeremy Ross helps owners and organizations deliver results today and build the leaders and systems to keep winning tomorrow. Leadership development, innovation and growth strategy.",
   // Override in production via NEXT_PUBLIC_SITE_URL (no trailing slash).
   url: (process.env.NEXT_PUBLIC_SITE_URL || "https://merlinleadership.com").replace(/\/$/, ""),
   email: "begin@merlinleadership.com",

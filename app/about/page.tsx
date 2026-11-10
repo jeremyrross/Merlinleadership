@@ -78,9 +78,8 @@ export default function AboutPage() {
               performs at its best because its leaders do.
             </p>
             <p className="mt-5 text-base text-neutral-600 text-balance">
-              I&apos;m completing an Executive MBA in Innovation Leadership at
-              the University of Fredericton, which includes a certificate from
-              Columbia University. I also hold certificates in Organizational
+              I hold an Executive MBA in Innovation Leadership from the
+              University of Fredericton, and certificates in Organizational
               Leadership from Northwestern University and in Strategic
               Management and Innovation from Copenhagen Business School.
             </p>

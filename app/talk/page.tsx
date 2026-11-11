@@ -6,52 +6,109 @@ import portrait from "@/public/images/jeremy-ross.jpg";
 export const metadata: Metadata = {
   title: "Work with me",
   description:
-    "Reach out to Jeremy Ross directly. Tell me what's going on, and if it's something I can help with, we'll set up a conversation.",
+    "For owners ready to grow a business that doesn't depend on them for every answer. Start a conversation with Jeremy Ross.",
 };
+
+const signs = [
+  "Turnover that keeps repeating, no matter who you hire",
+  "Managers who pass problems up instead of solving them",
+  "You can't step out of the day-to-day long enough to lead where the business goes next",
+];
+
+const steps = [
+  {
+    title: "Send a short note",
+    body: "Tell me what's happening in your business. A few sentences is plenty.",
+  },
+  {
+    title: "We talk",
+    body: "I'll reply personally to set up a free conversation at a time that works for you.",
+  },
+  {
+    title: "You leave with clarity",
+    body: "You'll have a clearer view of what's holding your team back, whether or not we work together.",
+  },
+];
 
 export default function TalkPage() {
   return (
     <main>
       <section className="bg-neutral-950 text-white py-[clamp(56px,9vw,96px)] px-5 sm:px-8 md:px-12">
-        <div className="mx-auto max-w-[640px] text-center">
+        <div className="mx-auto max-w-[680px] text-center">
           <span className="inline-block w-[26px] h-px bg-orange-500 mb-7" aria-hidden />
           <h1 className="font-serif italic font-medium text-[clamp(1.8rem,4.5vw,2.8rem)] leading-[1.1] text-balance">
             Work with me.
           </h1>
           <p className="mt-5 text-lg text-neutral-300 text-balance">
-            Tell me what&apos;s going on. If it&apos;s something I can help
-            with, we&apos;ll set up a time to talk. No pitch, no prep required.
+            For owners ready to grow a business that doesn&apos;t depend on
+            them for every answer.
           </p>
         </div>
       </section>
 
       <section className="px-5 sm:px-8 md:px-12 py-[clamp(48px,8vw,88px)]">
-        <div className="mx-auto max-w-[520px]">
-          <div className="rounded-xl border border-neutral-200 shadow-lg p-8 sm:p-10">
-            <div className="flex items-center gap-4 pb-6 mb-6 border-b border-neutral-200">
-              <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full bg-neutral-200">
+        <div className="mx-auto max-w-[1120px] grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,460px)] gap-12 lg:gap-16 items-start">
+          <div className="min-w-0">
+            <div className="flex items-center gap-4">
+              <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full bg-neutral-200">
                 <Image
                   src={portrait}
                   alt="Jeremy Ross"
                   fill
-                  sizes="64px"
+                  sizes="80px"
                   placeholder="blur"
                   className="object-cover object-[50%_20%]"
                 />
               </div>
               <div className="min-w-0">
-                <div className="font-semibold text-neutral-900">Jeremy Ross</div>
-                <p className="text-sm text-neutral-600">
-                  I help owners build leaders and teams that keep winning.
+                <div className="font-semibold text-neutral-900 text-lg">Jeremy Ross</div>
+                <p className="text-sm text-neutral-600 max-w-[44ch]">
+                  20+ years leading teams, including over a decade at Apple
+                  and La Maison Simons. Executive MBA in Innovation Leadership.
                 </p>
               </div>
             </div>
-            <div className="text-xs tracking-[0.2em] uppercase text-orange-500 mb-2">
-              Request to connect
-            </div>
-            <p className="text-sm text-neutral-500 mb-7">
-              I read and reply to every note myself, usually within two
-              business days.
+
+            <h2 className="mt-12 text-xs tracking-[0.2em] uppercase text-orange-500">
+              Sound familiar?
+            </h2>
+            <ul className="mt-4 flex flex-col gap-3">
+              {signs.map((s) => (
+                <li key={s} className="flex gap-3 text-neutral-800">
+                  <span className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rounded-full bg-teal-600" aria-hidden />
+                  <span>{s}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-5 text-neutral-600 max-w-[52ch]">
+              These usually aren&apos;t talent problems. They&apos;re leadership
+              problems, and they can be fixed.
+            </p>
+
+            <h2 className="mt-12 text-xs tracking-[0.2em] uppercase text-orange-500">
+              What happens next
+            </h2>
+            <ol className="mt-5 flex flex-col gap-6">
+              {steps.map((step, i) => (
+                <li key={step.title} className="flex gap-4">
+                  <span className="font-serif italic text-2xl leading-none text-neutral-400 w-6 shrink-0">
+                    {i + 1}
+                  </span>
+                  <div>
+                    <div className="font-semibold text-neutral-900">{step.title}</div>
+                    <p className="mt-1 text-neutral-600 max-w-[48ch]">{step.body}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          <div id="start" className="rounded-xl border border-neutral-200 shadow-lg p-8 sm:p-10 lg:sticky lg:top-28">
+            <h2 className="font-serif italic text-2xl text-neutral-900">
+              Start the conversation
+            </h2>
+            <p className="mt-2 mb-7 text-sm text-neutral-500">
+              Tell me where things stand. I&apos;ll take it from there.
             </p>
             <TalkRequestForm />
           </div>

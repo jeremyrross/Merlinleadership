@@ -9,25 +9,10 @@ export const metadata: Metadata = {
     "For owners ready to grow a business that doesn't depend on them for every answer. Start a conversation with Jeremy Ross.",
 };
 
-const signs = [
-  "Turnover that keeps repeating, no matter who you hire",
-  "Managers who pass problems up instead of solving them",
-  "You can't step out of the day-to-day long enough to lead where the business goes next",
-];
-
 const steps = [
-  {
-    title: "Send a short note",
-    body: "Tell me what's happening in your business. A few sentences is plenty.",
-  },
-  {
-    title: "We talk",
-    body: "I'll reply personally to set up a free conversation at a time that works for you.",
-  },
-  {
-    title: "You leave with clarity",
-    body: "You'll have a clearer view of what's holding your team back, whether or not we work together.",
-  },
+  "Send a short note about what's going on.",
+  "I'll reply personally to set up a free conversation.",
+  "You leave with a clearer view of what's holding your team back.",
 ];
 
 export default function TalkPage() {
@@ -69,35 +54,16 @@ export default function TalkPage() {
               </div>
             </div>
 
-            <h2 className="mt-12 text-xs tracking-[0.2em] uppercase text-orange-500">
-              Sound familiar?
-            </h2>
-            <ul className="mt-4 flex flex-col gap-3">
-              {signs.map((s) => (
-                <li key={s} className="flex gap-3 text-neutral-800">
-                  <span className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rounded-full bg-teal-600" aria-hidden />
-                  <span>{s}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-5 text-neutral-600 max-w-[52ch]">
-              These usually aren&apos;t talent problems. They&apos;re leadership
-              problems, and they can be fixed.
-            </p>
-
-            <h2 className="mt-12 text-xs tracking-[0.2em] uppercase text-orange-500">
+            <h2 className="mt-10 text-xs tracking-[0.2em] uppercase text-orange-500">
               What happens next
             </h2>
-            <ol className="mt-5 flex flex-col gap-6">
+            <ol className="mt-5 flex flex-col gap-4">
               {steps.map((step, i) => (
-                <li key={step.title} className="flex gap-4">
-                  <span className="font-serif italic text-2xl leading-none text-neutral-400 w-6 shrink-0">
+                <li key={step} className="flex gap-4 items-baseline">
+                  <span className="font-serif italic text-xl leading-none text-neutral-400 w-5 shrink-0">
                     {i + 1}
                   </span>
-                  <div>
-                    <div className="font-semibold text-neutral-900">{step.title}</div>
-                    <p className="mt-1 text-neutral-600 max-w-[48ch]">{step.body}</p>
-                  </div>
+                  <p className="text-neutral-700 max-w-[48ch]">{step}</p>
                 </li>
               ))}
             </ol>

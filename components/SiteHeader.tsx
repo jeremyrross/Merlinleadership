@@ -27,8 +27,8 @@ export default function SiteHeader() {
               {item.label}
             </Link>
           ))}
-          <Button href="/#subscribe" variant="primary" size="md">
-            Get 7 free lessons
+          <Button href="/talk" variant="primary" size="md">
+            Book a conversation
           </Button>
           <MobileMenu items={site.nav} />
         </nav>

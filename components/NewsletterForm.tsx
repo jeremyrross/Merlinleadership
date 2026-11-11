@@ -1,22 +1,9 @@
 "use client";
 
-import Script from "next/script";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
-
-declare global {
-  interface Window {
-    turnstile: {
-      render: (
-        container: string | HTMLElement,
-        options: Record<string, unknown>
-      ) => string;
-      reset: (widgetId: string) => void;
-      execute: (widgetId: string) => void;
-    };
-  }
-}
+import { useTurnstile } from "@/lib/useTurnstile";
 
 export default function NewsletterForm() {
   const [email, setEmail] = useState("");
@@ -24,54 +11,31 @@ export default function NewsletterForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
     "idle"
   );
-  const [turnstileReady, setTurnstileReady] = useState(false);
-  const widgetId = useRef<string | null>(null);
-  const tokenRef = useRef<string | null>(null);
-  const containerRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    if (turnstileReady && containerRef.current && !widgetId.current) {
-      widgetId.current = window.turnstile.render(containerRef.current, {
-        sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY,
-        theme: "light",
-        appearance: "interaction-only",
-        callback: (token: string) => {
-          tokenRef.current = token;
-        },
-      });
-    }
-  }, [turnstileReady]);
+  const { containerRef, getToken } = useTurnstile();
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setStatus("loading");
     try {
+      const token = await getToken();
       const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, token: tokenRef.current }),
+        body: JSON.stringify({ email, token }),
       });
       if (res.ok) {
         setStatus("success");
         setEmail("");
       } else {
         setStatus("error");
-        if (widgetId.current) window.turnstile.reset(widgetId.current);
       }
     } catch {
       setStatus("error");
-      if (widgetId.current) window.turnstile.reset(widgetId.current);
     }
   }
 
   return (
     <div className="w-full">
-      <Script
-        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-        strategy="lazyOnload"
-        onLoad={() => setTurnstileReady(true)}
-      />
-
       {status === "success" ? (
         <p className="text-teal-700 font-medium text-sm">
           You&apos;re on the list. Check your inbox shortly.

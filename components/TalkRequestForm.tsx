@@ -1,10 +1,10 @@
 "use client";
 
-import Script from "next/script";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { Input } from "@/components/ui/Input";
 import { Textarea } from "@/components/ui/Textarea";
 import { Button } from "@/components/ui/Button";
+import { useTurnstile } from "@/lib/useTurnstile";
 
 export default function TalkRequestForm() {
   const [name, setName] = useState("");
@@ -14,42 +14,25 @@ export default function TalkRequestForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
     "idle"
   );
-  const [turnstileReady, setTurnstileReady] = useState(false);
-  const widgetId = useRef<string | null>(null);
-  const tokenRef = useRef<string | null>(null);
-  const containerRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    if (turnstileReady && containerRef.current && !widgetId.current) {
-      widgetId.current = window.turnstile.render(containerRef.current, {
-        sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY,
-        theme: "light",
-        appearance: "interaction-only",
-        callback: (token: string) => {
-          tokenRef.current = token;
-        },
-      });
-    }
-  }, [turnstileReady]);
+  const { containerRef, getToken } = useTurnstile();
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setStatus("loading");
     try {
+      const token = await getToken();
       const res = await fetch("/api/talk", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, company, message, token: tokenRef.current }),
+        body: JSON.stringify({ name, email, company, message, token }),
       });
       if (res.ok) {
         setStatus("success");
       } else {
         setStatus("error");
-        if (widgetId.current) window.turnstile.reset(widgetId.current);
       }
     } catch {
       setStatus("error");
-      if (widgetId.current) window.turnstile.reset(widgetId.current);
     }
   }
 
@@ -69,12 +52,6 @@ export default function TalkRequestForm() {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-      <Script
-        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-        strategy="lazyOnload"
-        onLoad={() => setTurnstileReady(true)}
-      />
-
       <Input
         label="Your name"
         required

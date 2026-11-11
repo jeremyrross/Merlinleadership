@@ -92,7 +92,7 @@ export default function AboutPage() {
             </p>
             <div className="flex flex-wrap gap-2.5 mt-8">
               <Button href="/talk" variant="primary" size="lg">
-                Let&apos;s talk
+                Work with me
               </Button>
               <Button href={`mailto:${site.email}`} variant="secondary" size="lg">
                 Email me

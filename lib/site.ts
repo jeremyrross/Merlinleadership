@@ -17,7 +17,7 @@ export const site = {
     { label: "Home", href: "/" },
     { label: "Writing", href: "/posts" },
     { label: "About", href: "/about" },
-    { label: "Let's talk", href: "/talk" },
+    { label: "Work with me", href: "/talk" },
   ],
 } as const;
 

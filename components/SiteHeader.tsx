@@ -18,7 +18,7 @@ export default function SiteHeader() {
         </Link>
 
         <nav className="flex items-center gap-2 sm:gap-6 md:gap-8">
-          {site.nav.filter((item) => item.href !== "/talk").map((item) => (
+          {site.nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -27,8 +27,8 @@ export default function SiteHeader() {
               {item.label}
             </Link>
           ))}
-          <Button href="/talk" variant="primary" size="md">
-            Let&apos;s talk
+          <Button href="/#subscribe" variant="primary" size="md">
+            Get 7 free lessons
           </Button>
           <MobileMenu items={site.nav} />
         </nav>

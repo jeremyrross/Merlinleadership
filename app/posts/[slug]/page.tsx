@@ -170,7 +170,7 @@ export default async function PostPage({
             </p>
           </div>
           <Button href="/talk" variant="accent" size="lg">
-            Let&apos;s talk
+            Start a conversation
           </Button>
         </div>
 

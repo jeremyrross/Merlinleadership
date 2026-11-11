@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 
 const steps = [
   "Send a short note about what's going on.",
-  "I'll reply personally to set up a free conversation.",
-  "You leave with a clearer view of what's holding your team back.",
+  "I'll reply personally to set up a conversation.",
+  "You leave with a clearer view of what's holding your team back and a plan for your next steps.",
 ];
 
 export default function TalkPage() {
@@ -48,8 +48,8 @@ export default function TalkPage() {
               <div className="min-w-0">
                 <div className="font-semibold text-neutral-900 text-lg">Jeremy Ross</div>
                 <p className="text-sm text-neutral-600 max-w-[44ch]">
-                  20+ years leading teams, including over a decade at Apple
-                  and La Maison Simons. Executive MBA in Innovation Leadership.
+                  20+ years leading teams. Executive MBA in Innovation
+                  Leadership.
                 </p>
               </div>
             </div>

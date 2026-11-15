@@ -1,6 +1,6 @@
 export const site = {
-  name: "Merlin Leadership Collective",
-  shortName: "MLC",
+  name: "Merlin Leadership",
+  shortName: "Merlin",
   tagline: "Results today. Leaders for tomorrow.",
   description:
     "Jeremy Ross helps owners and organizations deliver results today and build the leaders and systems to keep winning tomorrow. Leadership development, innovation and growth strategy.",

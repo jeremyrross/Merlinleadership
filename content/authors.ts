@@ -13,7 +13,7 @@ export type Author = {
 export const authors: Record<string, Author> = {
   merlin: {
     name: "Jeremy Ross",
-    title: "Merlin Leadership Collective",
+    title: "Merlin Leadership",
     bio: "Over twenty years developing leaders and the teams around them. I help owner-led businesses build the leadership to keep growing.",
     image: portrait,
   },

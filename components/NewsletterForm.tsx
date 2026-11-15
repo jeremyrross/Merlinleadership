@@ -103,7 +103,7 @@ export default function NewsletterForm() {
               className="mt-[3px] accent-teal-500"
             />
             <span className="text-neutral-400 text-xs leading-relaxed">
-              I agree to receive email updates from {"Merlin Leadership Collective"}. See our{" "}
+              I agree to receive email updates from {"Merlin Leadership"}. See our{" "}
               <a href="/privacy" className="text-teal-700 hover:underline">
                 Privacy Policy
               </a>

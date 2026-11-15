@@ -9,11 +9,15 @@ export default function SiteHeader() {
   return (
     <header className="sticky top-0 z-20 bg-white/92 backdrop-blur-sm backdrop-saturate-150 border-b border-neutral-200">
       <div className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 h-auto py-3.5 flex items-center justify-between gap-3 sm:gap-6">
-        <Link href="/" className="flex items-end gap-2.5 shrink-0" aria-label={site.name}>
-          <Image src={logoMark} alt="" height={54} className="h-10 sm:h-[54px] w-auto" priority />
-          {/* Sits on the wordmark's baseline: margin = space below "merlin" in the image minus the font's descender */}
-          <span className="hidden sm:block font-logo text-[29px] leading-none text-neutral-700 mb-2" aria-hidden>
-            Leadership
+        <Link href="/" className="flex flex-col items-start gap-1 shrink-0" aria-label={site.name}>
+          <Image src={logoMark} alt="" height={48} className="h-10 sm:h-12 w-auto" priority />
+          <span
+            className="hidden sm:block pl-0.5 text-[9.5px] leading-[1.4] font-semibold tracking-[0.16em] uppercase text-[#36454f]"
+            aria-hidden
+          >
+            Leadership Advisory
+            <br />
+            Management Consulting
           </span>
         </Link>
 

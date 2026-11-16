@@ -42,7 +42,7 @@ const changes = [
 ];
 
 const goodFit = [
-  "You lead a growing organization, or a team within one, of roughly 25 to 500 people.",
+  "You lead a growing organization, or a team within one.",
   "You can see the people problem, even if you can't name it yet.",
   "You want to build your leaders, not hand the problem to someone else.",
   "You're willing to look at your own part in it.",

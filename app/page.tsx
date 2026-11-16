@@ -57,18 +57,9 @@ const whoIWorkWith = [
 ];
 
 const steps = [
-  {
-    title: "Start with a conversation",
-    body: "No preparation needed. Tell me what's going on and I'll listen. I reply personally within two business days.",
-  },
-  {
-    title: "Find the real problem",
-    body: "We look at what's actually getting in the way: the leader, the team or the systems around them.",
-  },
-  {
-    title: "Build it in",
-    body: "We work on the small number of leadership habits that will make the biggest difference in your organization, and track whether they stick.",
-  },
+  { title: "Talk", body: "Tell me what's going on. No preparation needed." },
+  { title: "Diagnose", body: "We find what's really getting in the way." },
+  { title: "Build", body: "The skills, systems and habits your organization needs, built to stick." },
 ];
 
 export default async function Home() {
@@ -229,14 +220,14 @@ export default async function Home() {
           How we start
         </div>
         <h2 className="font-serif italic font-medium text-[clamp(1.5rem,3vw,2.2rem)] leading-[1.2] max-w-[28ch] text-balance">
-          It starts with a conversation, not a proposal.
+          The work isn&apos;t easy. The path is simple.
         </h2>
         <ol className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
           {steps.map((s, i) => (
             <li key={s.title} className="border-t-2 border-orange-500 pt-5">
-              <div className="font-mono text-xs text-neutral-400">Step {i + 1}</div>
-              <h3 className="mt-2 text-xl font-bold font-sans">{s.title}</h3>
-              <p className="mt-3 text-base leading-relaxed text-neutral-600">{s.body}</p>
+              <div className="font-mono text-xs text-neutral-400">0{i + 1}</div>
+              <h3 className="mt-2 text-2xl font-bold font-sans">{s.title}</h3>
+              <p className="mt-2 text-lg leading-snug text-neutral-600">{s.body}</p>
             </li>
           ))}
         </ol>

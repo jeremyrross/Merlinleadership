@@ -160,7 +160,7 @@ export default async function Home() {
         <div className="grid grid-cols-1 md:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] gap-10 md:gap-16 items-start">
           <div>
             <div className="text-xs tracking-[0.2em] uppercase text-orange-300 mb-3.5">
-              What changes
+              What changes for you
             </div>
             <h2 className="font-serif italic font-medium text-[clamp(1.5rem,3vw,2.2rem)] leading-[1.2] text-balance">
               You can see it in how the work moves when you&apos;re not in the room.

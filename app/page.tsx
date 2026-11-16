@@ -126,9 +126,6 @@ export default async function Home() {
             </li>
           ))}
         </ul>
-        <p className="mt-9 pt-7 border-t border-neutral-200 font-serif italic text-[clamp(1.3rem,2.4vw,1.75rem)] leading-snug text-teal-800 max-w-[40ch]">
-          Strong leadership teams aren&apos;t found. They&apos;re built, one leader at a time.
-        </p>
       </section>
 
       {/* 3. The approach */}

@@ -184,11 +184,6 @@ export default async function Home() {
               </div>
             ))}
           </div>
-          <p className="mt-8 text-sm text-neutral-500 max-w-[70ch]">
-            Built on Peter Drucker&apos;s three areas of executive contribution
-            from <em>The Effective Executive</em>: direct results, values, and
-            developing people for tomorrow.
-          </p>
         </div>
       </section>
 

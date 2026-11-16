@@ -42,9 +42,9 @@ const changes = [
 ];
 
 const steps = [
-  { title: "Talk", body: "Tell me what's going on. No preparation needed." },
+  { title: "Connect", body: "Tell me what's going on. No preparation needed." },
   { title: "Diagnose", body: "We find what's really getting in the way." },
-  { title: "Build", body: "The skills, systems and habits your organization needs, built to stick." },
+  { title: "Solve", body: "The skills, systems and habits your organization needs, built to stick." },
 ];
 
 export default async function Home() {
@@ -185,7 +185,7 @@ export default async function Home() {
       <section className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(64px,9vw,120px)]">
         <div className="text-xs tracking-[0.22em] uppercase text-orange-700 mb-4">How we start</div>
         <h2 className="font-serif italic font-medium text-[clamp(2rem,4.4vw,3.4rem)] leading-[1.12] max-w-[15ch] text-balance">
-          The work isn&apos;t easy. The path is simple.
+          Leadership is hard work. We&apos;ll make the path simple.
         </h2>
         <ol className="relative mt-14 grid grid-cols-1 md:grid-cols-[repeat(3,minmax(0,1fr))_auto] gap-10 md:gap-8">
           {/* Connecting line: vertical on phones, horizontal from md up, fading into orange at the button */}

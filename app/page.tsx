@@ -111,14 +111,14 @@ export default async function Home() {
       </section>
 
       {/* 2. Sound familiar? One big question, three symptoms, one hopeful turn */}
-      <section className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(64px,9vw,120px)]">
+      <section className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(44px,5.5vw,76px)]">
         <div className="max-w-[48rem]">
           <div className="text-xs tracking-[0.24em] uppercase text-orange-500 mb-4">Sound familiar?</div>
           <h2 className="font-serif italic font-medium text-[clamp(2rem,4.4vw,3.4rem)] leading-[1.12] text-balance">
             Your people are capable. So why does it still feel this hard?
           </h2>
         </div>
-        <ul className="mt-12 space-y-4 max-w-[46rem]">
+        <ul className="mt-9 space-y-4 max-w-[46rem]">
           {symptoms.map((item) => (
             <li key={item} className="flex gap-4 text-[clamp(1.15rem,2vw,1.4rem)] leading-snug text-neutral-800">
               <span className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rounded-full bg-orange-500" aria-hidden />
@@ -126,7 +126,7 @@ export default async function Home() {
             </li>
           ))}
         </ul>
-        <p className="mt-12 pt-8 border-t border-neutral-200 font-serif italic text-[clamp(1.3rem,2.4vw,1.75rem)] leading-snug text-teal-800 max-w-[40ch]">
+        <p className="mt-9 pt-7 border-t border-neutral-200 font-serif italic text-[clamp(1.3rem,2.4vw,1.75rem)] leading-snug text-teal-800 max-w-[40ch]">
           Strong leadership teams aren&apos;t found. They&apos;re built, one leader at a time.
         </p>
       </section>

@@ -157,25 +157,27 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* 4. What changes */}
-      <section className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(56px,8vw,104px)]">
+      {/* 4. What changes (dark band) */}
+      <section className="bg-neutral-950 text-white">
+        <div className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(56px,8vw,104px)]">
         <div className="grid grid-cols-1 md:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] gap-10 md:gap-16 items-start">
           <div>
-            <div className="text-xs tracking-[0.2em] uppercase text-orange-500 mb-3.5">
+            <div className="text-xs tracking-[0.2em] uppercase text-orange-300 mb-3.5">
               What changes
             </div>
             <h2 className="font-serif italic font-medium text-[clamp(1.5rem,3vw,2.2rem)] leading-[1.2] text-balance">
               You can see it in how the work moves when you&apos;re not in the room.
             </h2>
           </div>
-          <ul className="flex flex-col divide-y divide-neutral-200 border-y border-neutral-200">
+          <ul className="flex flex-col divide-y divide-white/15 border-y border-white/15">
             {changes.map((item) => (
-              <li key={item} className="py-4 text-lg text-neutral-800 flex gap-4">
-                <span className="text-teal-600 font-semibold" aria-hidden>✓</span>
+              <li key={item} className="py-4 text-lg text-neutral-200 flex gap-4">
+                <span className="text-teal-300 font-semibold" aria-hidden>✓</span>
                 <span>{item}</span>
               </li>
             ))}
           </ul>
+        </div>
         </div>
       </section>
 

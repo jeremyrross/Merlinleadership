@@ -9,12 +9,6 @@ export const metadata: Metadata = {
     "For leaders ready to build an organization that doesn't depend on them for every answer. Start a conversation with Jeremy Ross.",
 };
 
-const steps = [
-  "Send a short note about what's going on.",
-  "I'll reply personally to set up a conversation.",
-  "You leave with a clearer view of what's holding your team back and a plan for your next steps.",
-];
-
 export default function TalkPage() {
   return (
     <main>
@@ -54,19 +48,15 @@ export default function TalkPage() {
               </div>
             </div>
 
-            <h2 className="mt-10 text-xs tracking-[0.2em] uppercase text-orange-500">
-              What happens next
-            </h2>
-            <ol className="mt-5 flex flex-col gap-4">
-              {steps.map((step, i) => (
-                <li key={step} className="flex gap-4 items-baseline">
-                  <span className="font-serif italic text-xl leading-none text-neutral-400 w-5 shrink-0">
-                    {i + 1}
-                  </span>
-                  <p className="text-neutral-700 max-w-[48ch]">{step}</p>
-                </li>
-              ))}
-            </ol>
+            <div className="mt-10 border-l-2 border-orange-500 pl-5">
+              <h2 className="text-xs tracking-[0.2em] uppercase text-orange-500">
+                What you&apos;ll leave with
+              </h2>
+              <p className="mt-3 text-lg leading-relaxed text-neutral-800 max-w-[44ch]">
+                A clearer view of what&apos;s holding your team back, and a plan for
+                your next steps.
+              </p>
+            </div>
           </div>
 
           <div id="start" className="rounded-xl border border-neutral-200 shadow-lg p-8 sm:p-10 lg:sticky lg:top-28">

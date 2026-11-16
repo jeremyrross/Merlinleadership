@@ -26,7 +26,7 @@ export default function TalkPage() {
       </section>
 
       <section className="px-5 sm:px-8 md:px-12 py-[clamp(40px,6vw,64px)]">
-        <div className="mx-auto max-w-[1120px] grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,460px)] gap-12 lg:gap-16 items-center">
+        <div className="mx-auto max-w-[640px] flex flex-col gap-10">
           <div className="min-w-0">
             <div className="flex items-center gap-4">
               <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full bg-neutral-200">

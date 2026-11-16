@@ -11,9 +11,9 @@ export default function SiteHeader() {
       <div className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 h-auto py-3.5 flex items-center justify-between gap-3 sm:gap-6">
         <Link href="/" className="flex items-end gap-2.5 shrink-0" aria-label={site.name}>
           <Image src={logoMark} alt="" height={54} className="h-10 sm:h-[54px] w-auto" priority />
-          {/* "Leadership" sits on the wordmark's baseline (mb-[9px] measured at 54px logo height).
+          {/* "Leadership" sits on the wordmark's baseline (nudged up 3px from the measured baseline, by request).
               The descriptor hangs just below it. Both hidden on phones for space. */}
-          <span className="hidden sm:block relative font-logo text-[29px] leading-none text-teal-700 mb-[9px]" aria-hidden>
+          <span className="hidden sm:block relative font-logo text-[29px] leading-none text-teal-700 mb-[12px]" aria-hidden>
             Leadership
             <span className="absolute left-px top-[calc(100%+3px)] whitespace-nowrap font-sans font-medium text-[9px] tracking-[0.2em] uppercase text-[#7a9fa8]">
               Consulting &amp; Advisory

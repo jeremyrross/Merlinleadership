@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/Button";
 import PostCard from "@/components/PostCard";
 import NewsletterForm from "@/components/NewsletterForm";
 import portrait from "@/public/images/jeremy-ross.jpg";
-import wing from "@/public/logos/merlin-wing.png";
 
 export const revalidate = 300;
 
@@ -14,9 +13,9 @@ export const revalidate = 300;
 // Wording is a first draft, meant to be edited.
 
 const symptoms = [
-  "Problems climb back up to your desk.",
-  "Hard conversations keep getting put off.",
-  "The business can't run a week without you.",
+  "The hard calls",
+  "The tough conversations",
+  "The problems nobody else will own",
 ];
 
 const pillars = [
@@ -133,35 +132,24 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* 2. Sound familiar? Teal band: one headline, three symptoms, one reframe */}
-      <section className="relative overflow-hidden bg-teal-800 text-white">
-        <Image
-          src={wing}
-          alt=""
-          aria-hidden
-          className="pointer-events-none absolute -right-16 -top-20 w-[300px] sm:w-[380px] h-auto opacity-[0.12]"
-        />
-        <div className="relative mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(64px,9vw,120px)]">
-          <div className="max-w-[48rem]">
-            <div className="text-xs tracking-[0.24em] uppercase text-[#ffb98a] mb-4">Sound familiar?</div>
-            <h2 className="font-serif italic font-medium text-[clamp(2rem,4.4vw,3.4rem)] leading-[1.12] text-balance">
-              Your people are capable. So why does it still feel this hard?
-            </h2>
-          </div>
-          <ul className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
-            {symptoms.map((item) => (
-              <li key={item} className="border-t-2 border-orange-500 pt-4 text-lg sm:text-xl leading-snug">
-                {item}
-              </li>
-            ))}
-          </ul>
-          <p className="mt-12 text-lg sm:text-xl leading-relaxed text-teal-100 max-w-[60ch]">
-            Your team isn&apos;t short on effort.{" "}
-            <strong className="font-semibold text-white">
-              It&apos;s short on leaders who can carry the weight without you.
-            </strong>
-          </p>
+      {/* 2. Sound familiar? One big question, a three-beat answer, one turn */}
+      <section className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(64px,9vw,120px)]">
+        <div className="max-w-[48rem]">
+          <div className="text-xs tracking-[0.24em] uppercase text-orange-500 mb-4">Sound familiar?</div>
+          <h2 className="font-serif italic font-medium text-[clamp(2rem,4.4vw,3.4rem)] leading-[1.12] text-balance">
+            Your people are capable. So why does it still feel this hard?
+          </h2>
         </div>
+        <ul className="mt-12 space-y-3">
+          {symptoms.map((item) => (
+            <li key={item} className="text-[clamp(1.25rem,2.2vw,1.6rem)] leading-snug text-neutral-800">
+              {item} <span className="text-teal-700 font-semibold">still wait for you.</span>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-12 pt-8 border-t border-neutral-200 font-serif italic text-[clamp(1.3rem,2.4vw,1.75rem)] leading-snug text-neutral-900 max-w-[40ch]">
+          Good people need good leaders. Right now, the only one they&apos;ve got is you.
+        </p>
       </section>
 
       {/* 3. The approach */}

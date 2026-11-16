@@ -6,7 +6,7 @@ import portrait from "@/public/images/jeremy-ross.jpg";
 export const metadata: Metadata = {
   title: "Work with me",
   description:
-    "For owners ready to grow a business that doesn't depend on them for every answer. Start a conversation with Jeremy Ross.",
+    "For leaders ready to build an organization that doesn't depend on them for every answer. Start a conversation with Jeremy Ross.",
 };
 
 const steps = [
@@ -25,8 +25,8 @@ export default function TalkPage() {
             Work with me.
           </h1>
           <p className="mt-5 text-lg text-neutral-300 text-balance">
-            For owners ready to grow a business that doesn&apos;t depend on
-            them for every answer.
+            For leaders ready to build an organization that doesn&apos;t depend
+            on them for every answer.
           </p>
         </div>
       </section>

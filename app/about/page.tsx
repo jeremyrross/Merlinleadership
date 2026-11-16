@@ -28,16 +28,16 @@ export default function AboutPage() {
               Jeremy Ross
             </h1>
             <p className="mt-6 text-lg text-balance">
-              I help owners and leadership teams deliver results today while
-              building the leaders and systems that keep the business growing
-              tomorrow.
+              I help executives, owners and leadership teams deliver results today
+              while building the leaders and systems that keep the organization
+              growing tomorrow.
             </p>
             <p className="mt-5 text-base text-neutral-600 text-balance">
               Most organizations I work with don&apos;t have a talent problem.
               They have a leadership gap that looks like one: turnover that
               keeps repeating, managers who pass problems up instead of solving
-              them, and owners who can&apos;t get out of the day-to-day long
-              enough to lead where the business goes next.
+              them, and senior leaders who can&apos;t get out of the day-to-day
+              long enough to lead where the organization goes next.
             </p>
             <p className="mt-5 text-base text-neutral-600 text-balance">
               I&apos;ve spent more than twenty years in leadership, including
@@ -47,8 +47,8 @@ export default function AboutPage() {
               stuck, and what it takes to get them moving again.
             </p>
             <p className="mt-5 text-base text-neutral-600 text-balance">
-              I work with owner-led businesses that have grown past the point
-              where one person can lead everything. My work focuses on four
+              I work with growing organizations that have reached the point
+              where one person can&apos;t lead everything. My work focuses on four
               areas:
             </p>
             <ul className="mt-4 space-y-3 text-base text-neutral-600 list-disc pl-5 marker:text-teal-700">
@@ -87,7 +87,7 @@ export default function AboutPage() {
               {site.name} is built on a simple belief: leaders get better
               when they surround themselves with other leaders. The essays here
               are where I share what I&apos;ve learned. The work is where we put
-              it into practice together. If your business is ready to lead
+              it into practice together. If your organization is ready to lead
               differently, let&apos;s talk.
             </p>
             <div className="flex flex-wrap gap-2.5 mt-8">

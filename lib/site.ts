@@ -3,7 +3,7 @@ export const site = {
   shortName: "Merlin",
   tagline: "Results today. Leaders for tomorrow.",
   description:
-    "Jeremy Ross helps owners and organizations deliver results today and build the leaders and systems to keep winning tomorrow. Leadership development, innovation and growth strategy.",
+    "Jeremy Ross helps executives, owners and organizations deliver results today and build the leaders and systems to keep winning tomorrow. Leadership development, innovation and growth strategy.",
   // Override in production via NEXT_PUBLIC_SITE_URL (no trailing slash).
   url: (process.env.NEXT_PUBLIC_SITE_URL || "https://merlinleadership.com").replace(/\/$/, ""),
   email: "begin@merlinleadership.com",

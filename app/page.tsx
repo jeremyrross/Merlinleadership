@@ -13,9 +13,9 @@ export const revalidate = 300;
 // Wording is a first draft, meant to be edited.
 
 const symptoms = [
-  "The hard calls",
-  "The tough conversations",
-  "The problems nobody else will own",
+  "Hard conversations keep getting put off.",
+  "Good people leave, and the exit interviews don't explain why.",
+  "Decisions keep landing on your desk that should be made below you.",
 ];
 
 const pillars = [
@@ -42,7 +42,7 @@ const changes = [
 ];
 
 const goodFit = [
-  "You own or run a growing business with roughly 25 to 150 people.",
+  "You lead a growing organization, or a team within one, of roughly 25 to 500 people.",
   "You can see the people problem, even if you can't name it yet.",
   "You want to build your leaders, not hand the problem to someone else.",
   "You're willing to look at your own part in it.",
@@ -65,7 +65,7 @@ const steps = [
   },
   {
     title: "Build it in",
-    body: "We work on the small number of leadership habits that will make the biggest difference in your business, and track whether they stick.",
+    body: "We work on the small number of leadership habits that will make the biggest difference in your organization, and track whether they stick.",
   },
 ];
 
@@ -107,7 +107,7 @@ export default async function Home() {
           <div className="flex items-center gap-3 mb-7">
             <span className="w-[26px] h-px bg-orange-500 block" aria-hidden />
             <span className="text-xs tracking-[0.2em] uppercase text-orange-300">
-              For owners of growing businesses
+              For leaders of growing organizations
             </span>
           </div>
           <h1 className="font-serif italic font-medium text-[clamp(2.1rem,5.4vw,3.8rem)] leading-[1.06] tracking-[-0.015em] max-w-[20ch] text-balance">
@@ -115,8 +115,8 @@ export default async function Home() {
             have a leadership problem.
           </h1>
           <p className="mt-7 text-[clamp(1rem,1.6vw,1.2rem)] text-neutral-300 max-w-[58ch]">
-            I help owners build leaders who can carry more of the load, so the
-            business grows without everything running through you.
+            I help executives and owners build leaders who can carry more of the
+            load, so the organization grows without everything running through you.
           </p>
           <div className="flex flex-wrap items-center gap-5 mt-10">
             <Button href="/talk" variant="accent" size="lg">
@@ -132,7 +132,7 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* 2. Sound familiar? One big question, a three-beat answer, one turn */}
+      {/* 2. Sound familiar? One big question, three symptoms, one hopeful turn */}
       <section className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(64px,9vw,120px)]">
         <div className="max-w-[48rem]">
           <div className="text-xs tracking-[0.24em] uppercase text-orange-500 mb-4">Sound familiar?</div>
@@ -140,15 +140,16 @@ export default async function Home() {
             Your people are capable. So why does it still feel this hard?
           </h2>
         </div>
-        <ul className="mt-12 space-y-3">
+        <ul className="mt-12 space-y-4 max-w-[46rem]">
           {symptoms.map((item) => (
-            <li key={item} className="text-[clamp(1.25rem,2.2vw,1.6rem)] leading-snug text-neutral-800">
-              {item} <span className="text-teal-700 font-semibold">still wait for you.</span>
+            <li key={item} className="flex gap-4 text-[clamp(1.15rem,2vw,1.4rem)] leading-snug text-neutral-800">
+              <span className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rounded-full bg-orange-500" aria-hidden />
+              <span>{item}</span>
             </li>
           ))}
         </ul>
-        <p className="mt-12 pt-8 border-t border-neutral-200 font-serif italic text-[clamp(1.3rem,2.4vw,1.75rem)] leading-snug text-neutral-900 max-w-[40ch]">
-          Good people need good leaders. Right now, the only one they&apos;ve got is you.
+        <p className="mt-12 pt-8 border-t border-neutral-200 font-serif italic text-[clamp(1.3rem,2.4vw,1.75rem)] leading-snug text-teal-800 max-w-[40ch]">
+          Strong leadership teams aren&apos;t found. They&apos;re built, one leader at a time.
         </p>
       </section>
 
@@ -164,7 +165,7 @@ export default async function Home() {
           <p className="mt-5 text-lg text-neutral-600 max-w-[62ch]">
             Not every leadership habit matters equally. A small set of them
             makes most of the difference. The work is finding the ones that
-            matter in your business and building them in, across three areas.
+            matter in your organization and building them in, across three areas.
           </p>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
             {pillars.map((p, i) => (
@@ -207,7 +208,7 @@ export default async function Home() {
             Is this for you?
           </div>
           <h2 className="font-serif italic font-medium text-[clamp(1.5rem,3vw,2.2rem)] leading-[1.2] max-w-[30ch] text-balance">
-            I work best with owners who want to grow their leaders, not replace them.
+            I work best with leaders who want to grow their people, not replace them.
           </h2>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-10">
             <div>
@@ -342,7 +343,7 @@ export default async function Home() {
             Results today. Leaders for tomorrow.
           </h2>
           <p className="mt-5 text-lg text-neutral-300 text-balance">
-            If any of this sounds like your business, let&apos;s talk. Bring
+            If any of this sounds familiar, let&apos;s talk. Bring
             what you&apos;re dealing with. No preparation needed.
           </p>
           <div className="mt-9">

@@ -228,14 +228,17 @@ export default async function Home() {
               Who you&apos;ll work with
             </div>
             <p className="text-lg max-w-[56ch] text-balance">
-              I&apos;m <strong className="font-semibold">Jeremy Ross</strong>. I&apos;ve
-              spent over twenty years developing leaders and the teams around
-              them, including more than a decade at Apple and La Maison Simons.
+              Most businesses that stall don&apos;t have a strategy problem.
+              They have a leadership problem that shows up as turnover,
+              disengaged teams and leaders stuck working in the business when
+              they should be leading where it goes next.
             </p>
             <p className="text-lg max-w-[56ch] text-balance mt-4">
-              I hold an Executive MBA in Innovation Leadership and I&apos;m a
-              certified trainer in the GROW coaching model. I coach first, but I
-              believe clarity is kindness and standards matter.
+              I&apos;m <strong className="font-semibold">Jeremy Ross</strong>,
+              and I&apos;ve spent over twenty years developing leaders and the
+              teams around them, including more than a decade inside respected
+              global and Canadian brands. {site.name} brings that experience to
+              growing organizations that are ready to lead differently.
             </p>
             <Link href="/about" className="inline-block mt-5 text-sm font-semibold text-teal-700 hover:text-teal-800">
               More about me →

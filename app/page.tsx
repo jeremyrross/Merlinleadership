@@ -163,7 +163,7 @@ export default async function Home() {
               What changes for you
             </div>
             <h2 className="font-serif italic font-medium text-[clamp(1.5rem,3vw,2.2rem)] leading-[1.2] text-balance">
-              You can see it in how the work moves when you&apos;re not in the room.
+              You&apos;ll see it in how work gets done, even when you&apos;re not in the room.
             </h2>
           </div>
           <ul className="flex flex-col divide-y divide-white/15 border-y border-white/15">

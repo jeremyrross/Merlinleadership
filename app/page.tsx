@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/Button";
 import PostCard from "@/components/PostCard";
 import NewsletterForm from "@/components/NewsletterForm";
 import portrait from "@/public/images/jeremy-ross.jpg";
+import wing from "@/public/logos/merlin-wing.png";
 
 export const revalidate = 300;
 
@@ -13,12 +14,9 @@ export const revalidate = 300;
 // Wording is a first draft, meant to be edited.
 
 const symptoms = [
-  "Good people leave, and you're not always sure why.",
-  "Your managers pass messages along instead of leading.",
-  "Problems land back on your desk that should have been solved below you.",
-  "The team is busy, but not pulling in the same direction.",
+  "Problems climb back up to your desk.",
   "Hard conversations keep getting put off.",
-  "The business can't run for a week without you.",
+  "The business can't run a week without you.",
 ];
 
 const pillars = [
@@ -135,30 +133,35 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* 2. Sound familiar? */}
-      <section className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(56px,8vw,104px)]">
-        <div className="grid grid-cols-1 md:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] gap-10 md:gap-16">
-          <div>
-            <div className="text-xs tracking-[0.2em] uppercase text-orange-500 mb-3.5">
-              Sound familiar?
-            </div>
-            <h2 className="font-serif italic font-medium text-[clamp(1.5rem,3vw,2.2rem)] leading-[1.2] text-balance">
+      {/* 2. Sound familiar? Teal band: one headline, three symptoms, one reframe */}
+      <section className="relative overflow-hidden bg-teal-800 text-white">
+        <Image
+          src={wing}
+          alt=""
+          aria-hidden
+          className="pointer-events-none absolute -right-16 -top-20 w-[300px] sm:w-[380px] h-auto opacity-[0.12]"
+        />
+        <div className="relative mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(64px,9vw,120px)]">
+          <div className="max-w-[48rem]">
+            <div className="text-xs tracking-[0.24em] uppercase text-[#ffb98a] mb-4">Sound familiar?</div>
+            <h2 className="font-serif italic font-medium text-[clamp(2rem,4.4vw,3.4rem)] leading-[1.12] text-balance">
               Your people are capable. So why does it still feel this hard?
             </h2>
           </div>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5">
+          <ul className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
             {symptoms.map((item) => (
-              <li key={item} className="flex gap-3 text-lg leading-snug text-neutral-800">
-                <span className="mt-[0.55em] h-1.5 w-1.5 shrink-0 rounded-full bg-orange-500" aria-hidden />
-                <span>{item}</span>
+              <li key={item} className="border-t-2 border-orange-500 pt-4 text-lg sm:text-xl leading-snug">
+                {item}
               </li>
             ))}
           </ul>
+          <p className="mt-12 text-lg sm:text-xl leading-relaxed text-teal-100 max-w-[60ch]">
+            Your team isn&apos;t short on effort.{" "}
+            <strong className="font-semibold text-white">
+              It&apos;s short on leaders who can carry the weight without you.
+            </strong>
+          </p>
         </div>
-        <p className="mt-14 border-l-2 border-orange-500 pl-6 text-xl leading-relaxed text-neutral-700 max-w-[60ch]">
-          None of this is an effort problem. Your people are working hard. What&apos;s
-          usually missing is leadership below you that can take the weight.
-        </p>
       </section>
 
       {/* 3. The approach */}

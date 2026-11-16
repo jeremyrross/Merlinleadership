@@ -25,8 +25,8 @@ export default function TalkPage() {
         </div>
       </section>
 
-      <section className="px-5 sm:px-8 md:px-12 py-[clamp(48px,8vw,88px)]">
-        <div className="mx-auto max-w-[1120px] grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,460px)] gap-12 lg:gap-16 items-start">
+      <section className="px-5 sm:px-8 md:px-12 py-[clamp(40px,6vw,64px)]">
+        <div className="mx-auto max-w-[1120px] grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,460px)] gap-12 lg:gap-16 items-center">
           <div className="min-w-0">
             <div className="flex items-center gap-4">
               <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full bg-neutral-200">
@@ -59,7 +59,7 @@ export default function TalkPage() {
             </div>
           </div>
 
-          <div id="start" className="rounded-xl border border-neutral-200 shadow-lg p-8 sm:p-10 lg:sticky lg:top-28">
+          <div id="start" className="rounded-xl border border-neutral-200 shadow-lg p-8 sm:p-10">
             <h2 className="font-serif italic text-2xl text-neutral-900">
               Start the conversation
             </h2>

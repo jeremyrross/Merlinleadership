@@ -181,28 +181,35 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* 6. How we start */}
-      <section className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(56px,8vw,104px)]">
-        <div className="text-xs tracking-[0.2em] uppercase text-orange-500 mb-3.5">
-          How we start
-        </div>
-        <h2 className="font-serif italic font-medium text-[clamp(1.5rem,3vw,2.2rem)] leading-[1.2] max-w-[28ch] text-balance">
+      {/* 6. How we start: a connected path that ends at the call to action */}
+      <section className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(64px,9vw,120px)]">
+        <div className="text-xs tracking-[0.22em] uppercase text-orange-700 mb-4">How we start</div>
+        <h2 className="font-serif italic font-medium text-[clamp(2rem,4.4vw,3.4rem)] leading-[1.12] max-w-[15ch] text-balance">
           The work isn&apos;t easy. The path is simple.
         </h2>
-        <ol className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <ol className="relative mt-14 grid grid-cols-1 md:grid-cols-[repeat(3,minmax(0,1fr))_auto] gap-10 md:gap-8">
+          {/* Connecting line: vertical on phones, horizontal from md up, fading into orange at the button */}
+          <span
+            aria-hidden
+            className="absolute left-[27px] top-7 bottom-7 w-0.5 bg-teal-500 md:left-7 md:right-36 md:top-[27px] md:bottom-auto md:h-0.5 md:w-auto md:bg-gradient-to-r md:from-teal-500 md:via-teal-500 md:to-orange-500"
+          />
           {steps.map((s, i) => (
-            <li key={s.title} className="border-t-2 border-orange-500 pt-5">
-              <div className="font-mono text-xs text-neutral-400">0{i + 1}</div>
-              <h3 className="mt-2 text-2xl font-bold font-sans">{s.title}</h3>
-              <p className="mt-2 text-lg leading-snug text-neutral-600">{s.body}</p>
+            <li key={s.title} className="relative flex md:block gap-5">
+              <div className="flex-none flex h-14 w-14 items-center justify-center rounded-full border-2 border-teal-500 bg-white text-xl font-bold text-teal-700">
+                {i + 1}
+              </div>
+              <div className="md:mt-5">
+                <h3 className="text-2xl font-bold font-sans">{s.title}</h3>
+                <p className="mt-2 text-lg leading-snug text-neutral-600 max-w-[26ch]">{s.body}</p>
+              </div>
             </li>
           ))}
+          <li className="relative pl-[76px] md:pl-0 md:pt-0.5">
+            <Button href="/talk" variant="accent" size="lg">
+              Start with step 1 &rarr;
+            </Button>
+          </li>
         </ol>
-        <div className="mt-10">
-          <Button href="/talk" variant="accent" size="lg">
-            Book a conversation
-          </Button>
-        </div>
       </section>
 
       {/* 7. Who you'll work with */}

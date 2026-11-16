@@ -147,8 +147,8 @@ export default async function Home() {
           </p>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
             {pillars.map((p, i) => (
-              <div key={p.label} className="rounded-lg border border-neutral-200 bg-white p-7 shadow-sm">
-                <div className="font-mono text-xs text-orange-500">0{i + 1}</div>
+              <div key={p.label} className="rounded-lg border border-neutral-200 bg-white p-7 shadow-sm text-center">
+                <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-orange-600 font-mono text-sm font-medium text-white">0{i + 1}</div>
                 <h3 className="mt-3 text-xl font-bold font-sans">{p.label}</h3>
                 <p className="mt-3 text-base leading-relaxed text-neutral-600">{p.body}</p>
               </div>

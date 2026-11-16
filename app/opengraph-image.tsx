@@ -21,55 +21,28 @@ export default async function Image() {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "space-between",
-          background: "#0e0e0d",
-          padding: "72px 80px",
+          justifyContent: "center",
+          gap: 56,
+          background: "#ffffff",
+          padding: "80px 96px",
           fontFamily: "Georgia, serif",
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={logoSrc} width={264} height={100} alt="" />
-        <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-            <div style={{ width: 26, height: 2, background: "#ff914d", display: "flex" }} />
-            <div
-              style={{
-                display: "flex",
-                color: "#ffab6e",
-                fontSize: 20,
-                letterSpacing: 4,
-                textTransform: "uppercase",
-                fontFamily: "Helvetica, Arial, sans-serif",
-              }}
-            >
-              Leadership · Innovation · Growth
-            </div>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              fontSize: 68,
-              fontStyle: "italic",
-              color: "#fff",
-              lineHeight: 1.1,
-            }}
-          >
-            <span>Deliver results today.</span>
-            <span>Build the leaders for tomorrow.</span>
-          </div>
-        </div>
         <div
           style={{
             display: "flex",
-            justifyContent: "space-between",
-            color: "rgba(255,255,255,0.55)",
-            fontSize: 22,
-            fontFamily: "Helvetica, Arial, sans-serif",
+            flexDirection: "column",
+            fontSize: 64,
+            whiteSpace: "nowrap",
+            fontStyle: "italic",
+            color: "#1a1a1a",
+            lineHeight: 1.12,
           }}
         >
-          <span>{site.name}</span>
-          <span>merlinleadership.com</span>
+          <span>Deliver results today.</span>
+          <span>Build the leaders for tomorrow.</span>
         </div>
       </div>
     ),

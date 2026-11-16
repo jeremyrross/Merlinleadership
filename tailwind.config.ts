@@ -51,6 +51,7 @@ const config: Config = {
         serif: ["Lora", "ui-serif", "Georgia", "serif"],
         sans: ["Figtree", "ui-sans-serif", "system-ui", "-apple-system", "sans-serif"],
         mono: ['"IBM Plex Mono"', "ui-monospace", "SFMono-Regular", "monospace"],
+        logo: ['"Source Serif 4"', "Georgia", "serif"],
       },
       borderRadius: {
         sm: "6px",

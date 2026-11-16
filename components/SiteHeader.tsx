@@ -9,15 +9,15 @@ export default function SiteHeader() {
   return (
     <header className="sticky top-0 z-20 bg-white/92 backdrop-blur-sm backdrop-saturate-150 border-b border-neutral-200">
       <div className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 h-auto py-3.5 flex items-center justify-between gap-3 sm:gap-6">
-        <Link href="/" className="flex flex-col items-start gap-1 shrink-0" aria-label={site.name}>
-          <Image src={logoMark} alt="" height={48} className="h-10 sm:h-12 w-auto" priority />
-          <span
-            className="hidden sm:block pl-0.5 text-[9.5px] leading-[1.4] font-semibold tracking-[0.16em] uppercase text-[#36454f]"
-            aria-hidden
-          >
-            Leadership Advisory
-            <br />
-            Management Consulting
+        <Link href="/" className="flex items-end gap-2.5 shrink-0" aria-label={site.name}>
+          <Image src={logoMark} alt="" height={54} className="h-10 sm:h-[54px] w-auto" priority />
+          {/* "Leadership" sits on the wordmark's baseline (mb-[9px] measured at 54px logo height).
+              The descriptor hangs just below it. Both hidden on phones for space. */}
+          <span className="hidden sm:block relative font-logo text-[29px] leading-none text-teal-700 mb-[9px]" aria-hidden>
+            Leadership
+            <span className="absolute left-px top-[calc(100%+3px)] whitespace-nowrap font-sans font-medium text-[9px] tracking-[0.2em] uppercase text-[#7a9fa8]">
+              Consulting &amp; Advisory
+            </span>
           </span>
         </Link>
 

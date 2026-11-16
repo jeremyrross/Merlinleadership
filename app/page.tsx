@@ -20,15 +20,15 @@ const symptoms = [
 
 const pillars = [
   {
-    label: "The leader",
+    label: "The Leader",
     body: "How you and your managers spend your time, make decisions and set the tone. The habits that make you easy or hard to follow.",
   },
   {
-    label: "The people",
+    label: "The People",
     body: "Whether your team has the clarity, skills and ownership to solve problems without you. Developing the leaders you'll need next year, not just this quarter.",
   },
   {
-    label: "The results",
+    label: "The Results",
     body: "The numbers that tell you it's working: turnover, engagement, how fast decisions get made, and how much of your week goes back to running the business.",
   },
 ];

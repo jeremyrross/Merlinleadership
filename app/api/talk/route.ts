@@ -39,6 +39,7 @@ export async function POST(req: NextRequest) {
   const verifyData = await verifyRes.json();
 
   if (!verifyData.success) {
+    console.warn("[talk] turnstile rejected:", verifyData["error-codes"], "hostname:", verifyData.hostname);
     return NextResponse.json({ error: "CAPTCHA failed" }, { status: 400 });
   }
 
@@ -65,6 +66,7 @@ export async function POST(req: NextRequest) {
   });
 
   if (!formRes.ok) {
+    console.error("[talk] formspree failed:", formRes.status, await formRes.text().catch(() => ""));
     return NextResponse.json({ error: "Submission failed" }, { status: 500 });
   }
 

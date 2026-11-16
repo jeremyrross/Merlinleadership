@@ -60,11 +60,11 @@ export default function TalkPage() {
           </div>
 
           <div id="start" className="rounded-xl border border-neutral-200 shadow-lg p-8 sm:p-10">
-            <h2 className="font-serif italic text-2xl text-neutral-900">
+            <h2 className="font-serif italic text-2xl text-neutral-900 text-center">
               Start the conversation
             </h2>
-            <p className="mt-2 mb-7 text-sm text-neutral-500">
-              Tell me where things stand. I&apos;ll take it from there.
+            <p className="mt-2 mb-7 text-sm text-neutral-500 text-center">
+              What&apos;s on your mind? A few sentences is plenty.
             </p>
             <TalkRequestForm />
           </div>

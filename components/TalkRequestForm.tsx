@@ -43,8 +43,7 @@ export default function TalkRequestForm() {
           {name.trim().split(" ")[0] ? `Thanks, ${name.trim().split(" ")[0]}.` : "Thanks for reaching out."}
         </p>
         <p className="text-neutral-600 max-w-[40ch] mx-auto">
-          Your note is in. I&apos;ll reply personally within two business
-          days.
+          Got it. You&apos;ll hear from me personally within two business days.
         </p>
       </div>
     );

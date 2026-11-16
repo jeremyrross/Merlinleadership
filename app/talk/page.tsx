@@ -12,13 +12,13 @@ export const metadata: Metadata = {
 export default function TalkPage() {
   return (
     <main>
-      <section className="bg-neutral-950 text-white py-[clamp(56px,9vw,96px)] px-5 sm:px-8 md:px-12">
+      <section className="bg-neutral-950 text-white py-[clamp(32px,4.5vw,52px)] px-5 sm:px-8 md:px-12">
         <div className="mx-auto max-w-[680px] text-center">
-          <span className="inline-block w-[26px] h-px bg-orange-500 mb-7" aria-hidden />
+          <span className="inline-block w-[26px] h-px bg-orange-500 mb-5" aria-hidden />
           <h1 className="font-serif italic font-medium text-[clamp(1.8rem,4.5vw,2.8rem)] leading-[1.1] text-balance">
             Work with me.
           </h1>
-          <p className="mt-5 text-lg text-neutral-300 text-balance">
+          <p className="mt-3 text-lg text-neutral-300 text-balance">
             For leaders ready to build an organization that doesn&apos;t depend
             on them for every answer.
           </p>

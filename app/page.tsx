@@ -269,7 +269,7 @@ export default async function Home() {
         <div className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(32px,5vw,56px)] grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-14 items-center">
           <div>
             <div className="text-xs tracking-[0.2em] uppercase text-orange-500 mb-3.5">
-              Not ready to talk? · Free guide
+              Free guide
             </div>
             <h2 className="font-serif italic font-medium text-[clamp(1.3rem,2.6vw,1.9rem)] text-balance">
               7 Leadership Lessons, learned in the field

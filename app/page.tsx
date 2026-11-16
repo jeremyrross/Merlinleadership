@@ -41,17 +41,19 @@ const changes = [
   "You get time back to work on where the business goes next.",
 ];
 
-const goodFit = [
-  "You lead a growing organization, or a team within one.",
-  "You can see the people problem, even if you can't name it yet.",
-  "You want to build your leaders, not hand the problem to someone else.",
-  "You're willing to look at your own part in it.",
-];
-
-const notFit = [
-  "You're looking for a one-off workshop to tick a box.",
-  "You want someone to come in and manage your team for you.",
-  "You've already decided the answer and need it signed off.",
+const whoIWorkWith = [
+  {
+    label: "Owners and presidents",
+    body: "The organization has outgrown the way you used to run it, and too much still runs through you.",
+  },
+  {
+    label: "Executives and senior leaders",
+    body: "You're accountable for results across teams, and you need managers who can lead without you in the room.",
+  },
+  {
+    label: "Managers and leadership teams",
+    body: "Your people are strong at the work. Now they need to get just as good at leading the people doing it.",
+  },
 ];
 
 const steps = [
@@ -201,42 +203,22 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* 5. Is this for you? */}
+      {/* 5. Who I work with */}
       <section className="bg-neutral-950 text-white">
         <div className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(56px,8vw,104px)]">
           <div className="text-xs tracking-[0.2em] uppercase text-orange-300 mb-3.5">
-            Is this for you?
+            Who I work with
           </div>
           <h2 className="font-serif italic font-medium text-[clamp(1.5rem,3vw,2.2rem)] leading-[1.2] max-w-[30ch] text-balance">
             I work best with leaders who want to grow their people, not replace them.
           </h2>
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div>
-              <h3 className="text-sm font-semibold uppercase tracking-[0.15em] text-teal-300">
-                A good fit if
-              </h3>
-              <ul className="mt-5 flex flex-col gap-4">
-                {goodFit.map((item) => (
-                  <li key={item} className="flex gap-3 text-lg text-neutral-200">
-                    <span className="text-teal-300" aria-hidden>✓</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-sm font-semibold uppercase tracking-[0.15em] text-neutral-400">
-                Probably not a fit if
-              </h3>
-              <ul className="mt-5 flex flex-col gap-4">
-                {notFit.map((item) => (
-                  <li key={item} className="flex gap-3 text-lg text-neutral-400">
-                    <span aria-hidden>×</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-10">
+            {whoIWorkWith.map((w) => (
+              <div key={w.label} className="border-t border-white/20 pt-5">
+                <h3 className="text-sm font-semibold uppercase tracking-[0.15em] text-teal-300">{w.label}</h3>
+                <p className="mt-3 text-lg leading-relaxed text-neutral-200">{w.body}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

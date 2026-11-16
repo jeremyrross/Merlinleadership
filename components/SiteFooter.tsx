@@ -48,8 +48,6 @@ export default function SiteFooter() {
 
         <div className="text-xs leading-relaxed text-neutral-500 col-span-2 sm:col-span-1">
           © {year} {site.name}
-          <br />
-          Written in the open, revised often.
         </div>
       </div>
     </footer>

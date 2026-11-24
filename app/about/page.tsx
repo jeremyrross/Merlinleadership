@@ -76,7 +76,7 @@ export default function AboutPage() {
             </p>
             <div className="flex flex-wrap gap-2.5 mt-8">
               <Button href="/posts" variant="primary" size="lg">
-                Read the Field Notes
+                Read the essays
               </Button>
               <Button href={`mailto:${site.email}`} variant="secondary" size="lg">
                 Email me

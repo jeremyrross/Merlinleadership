@@ -4,9 +4,9 @@ import PostCard from "@/components/PostCard";
 import { TagLink } from "@/components/ui/Tag";
 
 export const metadata: Metadata = {
-  title: "Field Notes",
+  title: "Essays",
   description:
-    "Essays and field notes on leading people by Jeremy Ross.",
+    "Essays on leading people by Jeremy Ross.",
 };
 
 export default async function PostsPage({
@@ -27,7 +27,7 @@ export default async function PostsPage({
   return (
     <main className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(48px,7vw,96px)]">
       <h1 className="font-serif italic font-medium text-[clamp(2rem,4.5vw,3rem)]">
-        Field Notes
+        Essays
       </h1>
       <p className="mt-4 text-lg text-neutral-600 max-w-[60ch]">
         What I&apos;m learning about leading people, written down as I go.

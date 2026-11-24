@@ -68,7 +68,7 @@ export default async function Home() {
           <div className="flex items-center gap-3 mb-7">
             <span className="w-[26px] h-px bg-orange-500 block" aria-hidden />
             <span className="text-xs tracking-[0.2em] uppercase text-orange-300">
-              Field notes on leadership
+              Essays on leadership
             </span>
           </div>
           <h1 className="font-serif italic font-medium text-[clamp(2.1rem,5.4vw,3.8rem)] leading-[1.06] tracking-[-0.015em] max-w-[20ch] text-balance">
@@ -87,7 +87,7 @@ export default async function Home() {
               </Button>
             ) : (
               <Button href="/posts" variant="accent" size="lg">
-                Read the Field Notes
+                Read the essays
               </Button>
             )}
             <Link
@@ -124,13 +124,13 @@ export default async function Home() {
         </section>
       )}
 
-      {/* 3. More field notes */}
+      {/* 3. More essays */}
       {recent.length > 0 && (
         <section className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(48px,7vw,88px)]">
           <div className="flex items-baseline justify-between gap-6 mb-2">
-            <h2 className="text-2xl font-bold font-sans">More field notes</h2>
+            <h2 className="text-2xl font-bold font-sans">More essays</h2>
             <Link href="/posts" className="text-sm font-medium text-teal-700 hover:text-teal-800">
-              All field notes →
+              All essays →
             </Link>
           </div>
           <div>
@@ -219,7 +219,7 @@ export default async function Home() {
               Get the next one
             </div>
             <h2 className="font-serif italic font-medium text-[clamp(1.5rem,3vw,2.2rem)] leading-[1.2] text-balance">
-              New field notes, straight to your inbox.
+              New essays, straight to your inbox.
             </h2>
             <p className="mt-4 text-base text-neutral-300 max-w-[46ch]">
               You&apos;ll also get a free copy of <em>7 Leadership Lessons</em>:

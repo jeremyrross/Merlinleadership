@@ -16,7 +16,7 @@ export default function SiteHeader() {
           <span className="hidden sm:block relative font-logo text-[29px] leading-none text-teal-700 mb-[12px]" aria-hidden>
             Leadership
             <span className="absolute left-px top-[calc(100%+3px)] whitespace-nowrap font-sans font-medium text-[9px] tracking-[0.2em] uppercase text-[#7a9fa8]">
-              Field Notes on Leadership
+              Essays on Leadership
             </span>
           </span>
         </Link>

@@ -33,7 +33,7 @@ export default async function Home() {
   const posts = await getAllPosts();
   const tags = await getAllTags();
   const [latest, ...rest] = posts;
-  const recent = rest.slice(0, 5);
+  const recent = rest.slice(0, 2);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -124,37 +124,6 @@ export default async function Home() {
         </section>
       )}
 
-      {/* 3. More essays */}
-      {recent.length > 0 && (
-        <section className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(48px,7vw,88px)]">
-          <div className="flex items-baseline justify-between gap-6 mb-2">
-            <h2 className="text-2xl font-bold font-sans">More essays</h2>
-            <Link href="/posts" className="text-sm font-medium text-teal-700 hover:text-teal-800">
-              All essays →
-            </Link>
-          </div>
-          <div>
-            {recent.map((post) => (
-              <PostCard key={post.slug} post={post} />
-            ))}
-          </div>
-          {tags.length > 0 && (
-            <div className="mt-10">
-              <div className="text-xs tracking-[0.2em] uppercase text-neutral-400 mb-3.5">
-                Browse by topic
-              </div>
-              <div className="flex flex-wrap gap-2.5">
-                {tags.map(({ tag, count }) => (
-                  <TagLink key={tag} href={`/posts?tag=${tagSlug(tag)}`} active={false}>
-                    {tag} <span className="opacity-60">{count}</span>
-                  </TagLink>
-                ))}
-              </div>
-            </div>
-          )}
-        </section>
-      )}
-
       {/* 4. The lens: how I look at leadership */}
       <section className="border-y border-neutral-200 bg-neutral-50">
         <div className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(56px,8vw,104px)]">
@@ -210,6 +179,37 @@ export default async function Home() {
           </Link>
         </div>
       </section>
+
+      {/* 3. More essays */}
+      {recent.length > 0 && (
+        <section className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 pt-0 pb-[clamp(48px,7vw,88px)]">
+          <div className="flex items-baseline justify-between gap-6 mb-2">
+            <h2 className="text-2xl font-bold font-sans">More essays</h2>
+            <Link href="/posts" className="text-sm font-medium text-teal-700 hover:text-teal-800">
+              All essays →
+            </Link>
+          </div>
+          <div>
+            {recent.map((post) => (
+              <PostCard key={post.slug} post={post} />
+            ))}
+          </div>
+          {tags.length > 0 && (
+            <div className="mt-10">
+              <div className="text-xs tracking-[0.2em] uppercase text-neutral-400 mb-3.5">
+                Browse by topic
+              </div>
+              <div className="flex flex-wrap gap-2.5">
+                {tags.map(({ tag, count }) => (
+                  <TagLink key={tag} href={`/posts?tag=${tagSlug(tag)}`} active={false}>
+                    {tag} <span className="opacity-60">{count}</span>
+                  </TagLink>
+                ))}
+              </div>
+            </div>
+          )}
+        </section>
+      )}
 
       {/* 6. Subscribe */}
       <section id="subscribe" className="bg-neutral-950 text-white scroll-mt-20">

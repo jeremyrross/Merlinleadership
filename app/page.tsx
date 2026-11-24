@@ -1,55 +1,39 @@
 import Link from "next/link";
 import Image from "next/image";
-import { getAllPosts } from "@/lib/posts";
+import { getAllPosts, getAllTags, tagSlug, formatDate } from "@/lib/posts";
 import { site } from "@/lib/site";
 import { Button } from "@/components/ui/Button";
+import { TagLink } from "@/components/ui/Tag";
 import PostCard from "@/components/PostCard";
 import NewsletterForm from "@/components/NewsletterForm";
 import portrait from "@/public/images/jeremy-ross.jpg";
 
 export const revalidate = 300;
 
-// Mockup copy for the consulting-focused homepage (branch: consulting-homepage).
+// Writing-first homepage (branch: writing-first).
+// The consulting homepage is preserved on the sales-funnel branch.
 // Wording is a first draft, meant to be edited.
 
-const symptoms = [
-  "Hard conversations keep getting put off.",
-  "Good people leave, and the exit interviews don't explain why.",
-  "Decisions keep landing on your desk that should be made below you.",
-];
-
-const pillars = [
+const lenses = [
   {
     label: "The Leader",
-    body: "How you and your managers spend your time, make decisions and set the tone. The habits that make you easy or hard to follow.",
+    body: "How you spend your time, make decisions and set the tone. The small habits that make you easy or hard to follow.",
   },
   {
     label: "The People",
-    body: "Whether your team has the clarity, skills and ownership to solve problems without you. Developing the leaders you'll need next year, not just this quarter.",
+    body: "Whether the people around you have the clarity, skills and ownership to solve problems without you. Growing the leaders you'll need next.",
   },
   {
     label: "The Results",
-    body: "The numbers that tell you it's working: turnover, engagement, how fast decisions get made, and how much of your week goes back to running the business.",
+    body: "The evidence that it's working: who stays, how fast decisions get made, and how much of your week goes to where things are headed.",
   },
-];
-
-const changes = [
-  "Decisions get made at the right level.",
-  "Managers deal with performance issues early.",
-  "Your people bring you solutions, not just problems.",
-  "Turnover drops because people want to stay.",
-  "You get time back to work on where the business goes next.",
-];
-
-const steps = [
-  { title: "Connect", body: "Tell me what's going on. No preparation needed." },
-  { title: "Diagnose", body: "We find what's really getting in the way." },
-  { title: "Solve", body: "The skills, systems and habits your organization needs, built to stick." },
 ];
 
 export default async function Home() {
   const posts = await getAllPosts();
-  const recent = posts.slice(0, 3);
+  const tags = await getAllTags();
+  const [latest, ...rest] = posts;
+  const recent = rest.slice(0, 5);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -65,7 +49,6 @@ export default async function Home() {
         "@type": "Person",
         "@id": `${site.url}/#person`,
         name: "Jeremy Ross",
-        jobTitle: `Founder, ${site.name}`,
         url: `${site.url}/about`,
         sameAs: site.linkedinUrl.startsWith("http") ? [site.linkedinUrl] : undefined,
       },
@@ -79,71 +62,115 @@ export default async function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* 1. Hero: who it's for and the problem */}
+      {/* 1. Hero: what this place is */}
       <section className="bg-neutral-950 text-white py-[clamp(64px,10vw,136px)] px-5 sm:px-8 md:px-12">
         <div className="mx-auto max-w-[1120px]">
           <div className="flex items-center gap-3 mb-7">
             <span className="w-[26px] h-px bg-orange-500 block" aria-hidden />
             <span className="text-xs tracking-[0.2em] uppercase text-orange-300">
-              For leaders of growing organizations
+              Field notes on leadership
             </span>
           </div>
           <h1 className="font-serif italic font-medium text-[clamp(2.1rem,5.4vw,3.8rem)] leading-[1.06] tracking-[-0.015em] max-w-[20ch] text-balance">
-            Most businesses that stall don&apos;t have a strategy problem. They
-            have a leadership problem.
+            Leadership is a practice, not a title.
           </h1>
           <p className="mt-7 text-[clamp(1rem,1.6vw,1.2rem)] text-neutral-300 max-w-[58ch]">
-            I help executives and owners build leaders who can carry more of the
-            load, so the organization grows without everything running through you.
+            I&apos;m Jeremy Ross. I&apos;ve spent twenty years leading teams and
+            developing the leaders around them. This is where I write down what
+            I&apos;m learning: how to see leadership more clearly, and how to
+            practice it a little better.
           </p>
           <div className="flex flex-wrap items-center gap-5 mt-10">
-            <Button href="/talk" variant="accent" size="lg">
-              Book a conversation
-            </Button>
+            {latest ? (
+              <Button href={`/posts/${latest.slug}`} variant="accent" size="lg">
+                Read the latest
+              </Button>
+            ) : (
+              <Button href="/posts" variant="accent" size="lg">
+                Read the Field Notes
+              </Button>
+            )}
             <Link
-              href="#approach"
+              href="#subscribe"
               className="text-sm font-semibold text-neutral-300 hover:text-white transition-colors"
             >
-              How I work →
+              Get new essays by email →
             </Link>
           </div>
         </div>
       </section>
 
-      {/* 2. Sound familiar? One big question, three symptoms, one hopeful turn */}
-      <section className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(44px,5.5vw,76px)]">
-        <div className="max-w-[48rem]">
-          <div className="text-xs tracking-[0.24em] uppercase text-orange-500 mb-4">Sound familiar?</div>
-          <h2 className="font-serif italic font-medium text-[clamp(2rem,4.4vw,3.4rem)] leading-[1.12] text-balance">
-            Your people are capable. So why does it still feel this hard?
-          </h2>
-        </div>
-        <ul className="mt-9 space-y-4 max-w-[46rem]">
-          {symptoms.map((item) => (
-            <li key={item} className="flex gap-4 text-[clamp(1.15rem,2vw,1.4rem)] leading-snug text-neutral-800">
-              <span className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rounded-full bg-orange-500" aria-hidden />
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-      </section>
+      {/* 2. Latest essay, featured */}
+      {latest && (
+        <section className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 pt-[clamp(48px,7vw,88px)]">
+          <div className="text-xs tracking-[0.24em] uppercase text-orange-600 mb-4">Latest</div>
+          <Link
+            href={`/posts/${latest.slug}`}
+            className="group block rounded-xl border border-neutral-200 bg-neutral-50 p-7 sm:p-10 hover:border-neutral-300 hover:bg-white transition-colors"
+          >
+            <h2 className="font-serif italic font-medium text-[clamp(1.7rem,3.6vw,2.6rem)] leading-[1.15] max-w-[26ch] text-balance group-hover:text-teal-800 transition-colors">
+              {latest.frontmatter.title}
+            </h2>
+            <p className="mt-4 text-lg text-neutral-600 max-w-[62ch]">
+              {latest.frontmatter.excerpt}
+            </p>
+            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2">
+              <span className="text-xs tracking-[0.14em] uppercase text-neutral-400">
+                {formatDate(latest.frontmatter.date)} · {latest.readingTime}
+              </span>
+              <span className="text-sm font-semibold text-teal-700">Read it →</span>
+            </div>
+          </Link>
+        </section>
+      )}
 
-      {/* 3. The approach */}
-      <section id="approach" className="border-y border-neutral-200 bg-neutral-50 scroll-mt-20">
+      {/* 3. More field notes */}
+      {recent.length > 0 && (
+        <section className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(48px,7vw,88px)]">
+          <div className="flex items-baseline justify-between gap-6 mb-2">
+            <h2 className="text-2xl font-bold font-sans">More field notes</h2>
+            <Link href="/posts" className="text-sm font-medium text-teal-700 hover:text-teal-800">
+              All field notes →
+            </Link>
+          </div>
+          <div>
+            {recent.map((post) => (
+              <PostCard key={post.slug} post={post} />
+            ))}
+          </div>
+          {tags.length > 0 && (
+            <div className="mt-10">
+              <div className="text-xs tracking-[0.2em] uppercase text-neutral-400 mb-3.5">
+                Browse by topic
+              </div>
+              <div className="flex flex-wrap gap-2.5">
+                {tags.map(({ tag, count }) => (
+                  <TagLink key={tag} href={`/posts?tag=${tagSlug(tag)}`} active={false}>
+                    {tag} <span className="opacity-60">{count}</span>
+                  </TagLink>
+                ))}
+              </div>
+            </div>
+          )}
+        </section>
+      )}
+
+      {/* 4. The lens: how I look at leadership */}
+      <section className="border-y border-neutral-200 bg-neutral-50">
         <div className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(56px,8vw,104px)]">
           <div className="text-xs tracking-[0.2em] uppercase text-teal-700 mb-3.5">
-            How I work
+            How I look at leadership
           </div>
           <h2 className="font-serif italic font-medium text-[clamp(1.5rem,3vw,2.2rem)] leading-[1.2] max-w-[28ch] text-balance">
-            The 20% of leadership that drives 80% of the results.
+            A small set of habits does most of the work.
           </h2>
           <p className="mt-5 text-lg text-neutral-600 max-w-[62ch]">
-            Not every leadership habit matters equally. A small set of them
-            makes most of the difference. The work is finding the ones that
-            matter in your organization and building them in, across three areas.
+            Not every leadership habit matters equally. Most of what I write
+            comes back to finding the 20% that drives 80% of the results, and
+            I look for it in three places.
           </p>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-            {pillars.map((p, i) => (
+            {lenses.map((p, i) => (
               <div key={p.label} className="rounded-lg border border-neutral-200 bg-white p-7 shadow-sm text-center">
                 <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-orange-600 font-mono text-sm font-medium text-white">0{i + 1}</div>
                 <h3 className="mt-3 text-xl font-bold font-sans">{p.label}</h3>
@@ -154,149 +181,53 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* 4. What changes (dark band) */}
-      <section className="bg-neutral-950 text-white">
-        <div className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(56px,8vw,104px)]">
-        <div className="grid grid-cols-1 md:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] gap-10 md:gap-16 items-start">
+      {/* 5. Who's writing */}
+      <section className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(48px,7vw,88px)] grid grid-cols-1 sm:grid-cols-3 gap-8 items-start">
+        <div className="aspect-[4/5] rounded-lg overflow-hidden bg-neutral-100 max-w-[280px]">
+          <Image
+            src={portrait}
+            alt="Jeremy Ross"
+            className="w-full h-full object-cover"
+            placeholder="blur"
+          />
+        </div>
+        <div className="sm:col-span-2 min-w-0">
+          <div className="text-xs tracking-[0.2em] uppercase text-neutral-400 mb-3.5">
+            Who&apos;s writing
+          </div>
+          <p className="text-lg max-w-[56ch] text-balance">
+            I&apos;m <strong className="font-semibold">Jeremy Ross</strong>. I
+            lead teams for a living and have for over twenty years, including
+            more than a decade at Apple and La Maison Simons. Most of what I
+            know I learned on the floor, often by getting it wrong first.
+          </p>
+          <p className="text-lg max-w-[56ch] text-balance mt-4">
+            I write to sharpen my own thinking and to pass on what&apos;s worked.
+            If one of these helps you lead a little better, it did its job.
+          </p>
+          <Link href="/about" className="inline-block mt-5 text-sm font-semibold text-teal-700 hover:text-teal-800">
+            More about me →
+          </Link>
+        </div>
+      </section>
+
+      {/* 6. Subscribe */}
+      <section id="subscribe" className="bg-neutral-950 text-white scroll-mt-20">
+        <div className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(48px,7vw,88px)] grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-14 items-center">
           <div>
             <div className="text-xs tracking-[0.2em] uppercase text-orange-300 mb-3.5">
-              What changes for you
+              Get the next one
             </div>
             <h2 className="font-serif italic font-medium text-[clamp(1.5rem,3vw,2.2rem)] leading-[1.2] text-balance">
-              You&apos;ll see it in how work gets done, even when you&apos;re not in the room.
+              New field notes, straight to your inbox.
             </h2>
-          </div>
-          <ul className="flex flex-col divide-y divide-white/15 border-y border-white/15">
-            {changes.map((item) => (
-              <li key={item} className="py-4 text-lg text-neutral-200 flex gap-4">
-                <span className="text-teal-300 font-semibold" aria-hidden>✓</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-        </div>
-      </section>
-
-      {/* 6. How we start: a connected path that ends at the call to action */}
-      <section className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(64px,9vw,120px)]">
-        <div className="text-xs tracking-[0.22em] uppercase text-orange-700 mb-4">How we start</div>
-        <h2 className="font-serif italic font-medium text-[clamp(2rem,4.4vw,3.4rem)] leading-[1.12] max-w-[15ch] text-balance">
-          Leadership is hard work. We&apos;ll make the path simple.
-        </h2>
-        <ol className="relative mt-14 grid grid-cols-1 md:grid-cols-[repeat(3,minmax(0,1fr))_auto] gap-10 md:gap-8">
-          {/* Connecting line: vertical on phones, horizontal from md up, fading into orange at the button */}
-          <span
-            aria-hidden
-            className="absolute left-[27px] top-7 bottom-7 w-0.5 bg-teal-500 md:left-7 md:right-36 md:top-[27px] md:bottom-auto md:h-0.5 md:w-auto md:bg-gradient-to-r md:from-teal-500 md:via-teal-500 md:to-orange-500"
-          />
-          {steps.map((s, i) => (
-            <li key={s.title} className="relative flex md:block gap-5">
-              <div className="flex-none flex h-14 w-14 items-center justify-center rounded-full border-2 border-teal-500 bg-white text-xl font-bold text-teal-700">
-                {i + 1}
-              </div>
-              <div className="md:mt-5">
-                <h3 className="text-2xl font-bold font-sans">{s.title}</h3>
-                <p className="mt-2 text-lg leading-snug text-neutral-600 max-w-[26ch]">{s.body}</p>
-              </div>
-            </li>
-          ))}
-          <li className="relative pl-[76px] md:pl-0 md:pt-0.5">
-            <Button href="/talk" variant="accent" size="lg">
-              Start with step 1 &rarr;
-            </Button>
-          </li>
-        </ol>
-      </section>
-
-      {/* 7. Who you'll work with */}
-      <section className="border-y border-neutral-200 bg-neutral-50">
-        <div className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(48px,7vw,88px)] grid grid-cols-1 sm:grid-cols-3 gap-8 items-start">
-          <div className="aspect-[4/5] rounded-lg overflow-hidden bg-neutral-100 max-w-[280px]">
-            <Image
-              src={portrait}
-              alt="Jeremy Ross"
-              className="w-full h-full object-cover"
-              placeholder="blur"
-            />
-          </div>
-          <div className="sm:col-span-2 min-w-0">
-            <div className="text-xs tracking-[0.2em] uppercase text-neutral-400 mb-3.5">
-              Who you&apos;ll work with
-            </div>
-            <p className="text-lg max-w-[56ch] text-balance">
-              Most businesses that stall don&apos;t have a strategy problem.
-              They have a leadership problem that shows up as turnover,
-              disengaged teams and leaders stuck working in the business when
-              they should be leading where it goes next.
-            </p>
-            <p className="text-lg max-w-[56ch] text-balance mt-4">
-              I&apos;m <strong className="font-semibold">Jeremy Ross</strong>,
-              and I&apos;ve spent over twenty years developing leaders and the
-              teams around them, including more than a decade inside respected
-              global and Canadian brands. {site.name} brings that experience to
-              growing organizations that are ready to lead differently.
-            </p>
-            <Link href="/about" className="inline-block mt-5 text-sm font-semibold text-teal-700 hover:text-teal-800">
-              More about me →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* 8. Writing, as proof of thinking */}
-      {recent.length > 0 && (
-        <section className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(56px,8vw,104px)]">
-          <div className="flex items-baseline justify-between gap-6 mb-2">
-            <h2 className="text-2xl font-bold font-sans">How I think about leadership</h2>
-            <Link href="/posts" className="text-sm font-medium text-teal-700 hover:text-teal-800">
-              All writing →
-            </Link>
-          </div>
-          <div>
-            {recent.map((post) => (
-              <PostCard key={post.slug} post={post} />
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* 9. Free guide (secondary path) */}
-      <section id="subscribe" className="border-t border-neutral-200 bg-neutral-50 scroll-mt-20">
-        <div className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(32px,5vw,56px)] grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-14 items-center">
-          <div>
-            <div className="text-xs tracking-[0.2em] uppercase text-orange-500 mb-3.5">
-              Free guide
-            </div>
-            <h2 className="font-serif italic font-medium text-[clamp(1.3rem,2.6vw,1.9rem)] text-balance">
-              7 Leadership Lessons, learned in the field
-            </h2>
-            <p className="mt-4 text-base text-neutral-600 max-w-[46ch]">
-              Mostly through making mistakes. Seven moments that changed how I
-              lead, sent straight to your inbox.
+            <p className="mt-4 text-base text-neutral-300 max-w-[46ch]">
+              You&apos;ll also get a free copy of <em>7 Leadership Lessons</em>:
+              seven moments, mostly mistakes, that changed how I lead.
             </p>
           </div>
-          <div>
+          <div className="rounded-lg bg-white p-6 text-neutral-900">
             <NewsletterForm />
-          </div>
-        </div>
-      </section>
-
-      {/* 10. Closing call to action */}
-      <section className="bg-neutral-950 text-white px-5 sm:px-8 md:px-12 py-[clamp(56px,8vw,96px)]">
-        <div className="mx-auto max-w-[680px] text-center">
-          <span className="inline-block w-[26px] h-px bg-orange-500 mb-7" aria-hidden />
-          <h2 className="font-serif italic font-medium text-[clamp(1.6rem,4vw,2.6rem)] leading-[1.15] text-balance">
-            Results today. Leaders for tomorrow.
-          </h2>
-          <p className="mt-5 text-lg text-neutral-300 text-balance">
-            If any of this sounds familiar, let&apos;s talk. Bring
-            what you&apos;re dealing with. No preparation needed.
-          </p>
-          <div className="mt-9">
-            <Button href="/talk" variant="accent" size="lg">
-              Book a conversation
-            </Button>
           </div>
         </div>
       </section>

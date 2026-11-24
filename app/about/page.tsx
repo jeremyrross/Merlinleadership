@@ -28,71 +28,55 @@ export default function AboutPage() {
               Jeremy Ross
             </h1>
             <p className="mt-6 text-lg text-balance">
-              I help executives, owners and leadership teams deliver results today
-              while building the leaders and systems that keep the organization
-              growing tomorrow.
+              I&apos;ve spent more than twenty years leading teams and developing
+              the leaders around them. This site is where I write down what
+              that work has taught me.
             </p>
             <p className="mt-5 text-base text-neutral-600 text-balance">
-              Most organizations I work with don&apos;t have a talent problem.
-              They have a leadership gap that looks like one: turnover that
-              keeps repeating, managers who pass problems up instead of solving
-              them, and senior leaders who can&apos;t get out of the day-to-day
-              long enough to lead where the organization goes next.
+              Most of what I know about leadership I learned the hard way:
+              on the floor, in tough conversations, and through plenty of
+              mistakes. That includes over a decade leading teams at Apple and
+              at La Maison Simons, one of Canada&apos;s oldest family-owned
+              retailers, and the work I do leading a team today.
             </p>
             <p className="mt-5 text-base text-neutral-600 text-balance">
-              I&apos;ve spent more than twenty years in leadership, including
-              over a decade leading teams at Apple and at La Maison Simons,
-              one of Canada&apos;s oldest family-owned retailers. That&apos;s
-              where I learned how organizations actually run, where they get
-              stuck, and what it takes to get them moving again.
-            </p>
-            <p className="mt-5 text-base text-neutral-600 text-balance">
-              I work with growing organizations that have reached the point
-              where one person can&apos;t lead everything. My work focuses on four
-              areas:
+              The ideas I keep coming back to:
             </p>
             <ul className="mt-4 space-y-3 text-base text-neutral-600 list-disc pl-5 marker:text-teal-700">
               <li>
-                <strong className="font-semibold text-neutral-800">Leadership development:</strong>{" "}
-                building the layer of leaders a growing business needs to keep
-                moving.
+                <strong className="font-semibold text-neutral-800">Leadership is a practice.</strong>{" "}
+                It shows up in small, repeated habits far more than in a title.
               </li>
               <li>
-                <strong className="font-semibold text-neutral-800">Innovation and growth strategy:</strong>{" "}
-                finding the problems worth solving and testing new ideas before
-                betting the business on them.
+                <strong className="font-semibold text-neutral-800">A few habits do most of the work.</strong>{" "}
+                Not everything matters equally. Finding the 20% that drives
+                80% of the results is most of the job.
               </li>
               <li>
-                <strong className="font-semibold text-neutral-800">Innovation culture:</strong>{" "}
-                creating an environment where people bring ideas forward
-                instead of waiting to be told.
+                <strong className="font-semibold text-neutral-800">Develop people, protect standards.</strong>{" "}
+                Coaching and accountability aren&apos;t opposites. Clarity is
+                kindness.
               </li>
               <li>
-                <strong className="font-semibold text-neutral-800">Leading change and scale:</strong>{" "}
-                guiding the business through growth and transformation without
-                losing what made it work.
+                <strong className="font-semibold text-neutral-800">Leaders need room to build.</strong>{" "}
+                Innovation happens when people bring ideas forward instead of
+                waiting to be told.
               </li>
             </ul>
             <p className="mt-5 text-base text-neutral-600 text-balance">
-              Wherever we start, the goal is the same: an organization that
-              performs at its best because its leaders do.
-            </p>
-            <p className="mt-5 text-base text-neutral-600 text-balance">
-              I pair my experience with formal training in innovation and
+              I pair that experience with formal training in innovation and
               strategy, including an Executive MBA in Innovation Leadership
               from the University of Fredericton and certificates from
               Northwestern University and Copenhagen Business School.
             </p>
             <p className="mt-5 text-base text-neutral-600 text-balance">
-              {site.name} is built on a simple belief: leaders get better
-              when they surround themselves with other leaders. The essays here
-              are where I share what I&apos;ve learned. The work is where we put
-              it into practice together. If your organization is ready to lead
-              differently, let&apos;s talk.
+              I&apos;m writing to sharpen my own thinking, and in the hope that
+              some of it helps you lead a little better. If something here
+              lands, or you see it differently, I&apos;d like to hear from you.
             </p>
             <div className="flex flex-wrap gap-2.5 mt-8">
-              <Button href="/talk" variant="primary" size="lg">
-                Work with me
+              <Button href="/posts" variant="primary" size="lg">
+                Read the Field Notes
               </Button>
               <Button href={`mailto:${site.email}`} variant="secondary" size="lg">
                 Email me

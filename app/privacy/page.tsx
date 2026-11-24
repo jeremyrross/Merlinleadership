@@ -22,12 +22,6 @@ export default function Privacy() {
             the free guide or updates, we collect your email address.
           </p>
           <p className="mt-3">
-            <strong className="text-neutral-900 font-medium">If you use the /talk form</strong>,
-            we collect your email address, and, if you choose to give them,
-            your name, your company or role, and a short note about what
-            you&apos;d like to talk about.
-          </p>
-          <p className="mt-3">
             <strong className="text-neutral-900 font-medium">When you visit</strong> the
             site, we collect anonymous traffic statistics, such as which pages
             are viewed, your country, and your browser type. This does not use
@@ -39,8 +33,7 @@ export default function Privacy() {
           <h2 className={sectionHeading}>How We Use Your Information</h2>
           <p>
             Your email address is used to send you the guide and updates from{" "}
-            {site.name}, and, if you used the /talk form, to reply to your
-            request. Anonymous traffic statistics are used to understand which
+            {site.name}. Anonymous traffic statistics are used to understand which
             writing is useful and to improve the site. We do not sell, rent, or
             share your personal information with third parties for their own
             purposes.
@@ -70,7 +63,7 @@ export default function Privacy() {
           <ul className="mt-3 space-y-2 list-disc pl-5">
             <li>
               <strong className="text-neutral-900 font-medium">Formspree</strong> stores
-              and delivers form submissions (signups and /talk requests).
+              and delivers form submissions (signups).
             </li>
             <li>
               <strong className="text-neutral-900 font-medium">Resend</strong> sends the

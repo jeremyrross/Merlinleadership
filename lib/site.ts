@@ -1,9 +1,9 @@
 export const site = {
   name: "Merlin Leadership",
   shortName: "Merlin",
-  tagline: "Results today. Leaders for tomorrow.",
+  tagline: "Field notes on leadership",
   description:
-    "Jeremy Ross helps executives, owners and organizations deliver results today and build the leaders and systems to keep winning tomorrow. Leadership development, innovation and growth strategy.",
+    "Essays and field notes from Jeremy Ross on how to see leadership more clearly and practice it better, drawn from twenty years of leading teams and developing leaders.",
   // Override in production via NEXT_PUBLIC_SITE_URL (no trailing slash).
   url: (process.env.NEXT_PUBLIC_SITE_URL || "https://merlinleadership.com").replace(/\/$/, ""),
   email: "begin@merlinleadership.com",
@@ -15,9 +15,8 @@ export const site = {
   mailingAddress: process.env.MAILING_ADDRESS ?? "",
   nav: [
     { label: "Home", href: "/" },
-    { label: "Writing", href: "/posts" },
+    { label: "Field Notes", href: "/posts" },
     { label: "About", href: "/about" },
-    { label: "Work with me", href: "/talk" },
   ],
 } as const;
 

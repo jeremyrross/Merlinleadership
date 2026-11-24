@@ -19,6 +19,10 @@ const securityHeaders = [
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  // Writing-first version: the /talk page is parked on the sales-funnel branch.
+  async redirects() {
+    return [{ source: "/talk", destination: "/about", permanent: false }];
+  },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },

@@ -7,7 +7,7 @@ export const revalidate = 300;
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = (await getAllPosts()).filter((p) => !p.frontmatter.draft);
 
-  const staticRoutes = ["/", "/posts", "/about", "/talk", "/privacy"].map((route) => ({
+  const staticRoutes = ["/", "/posts", "/about", "/privacy"].map((route) => ({
     url: absoluteUrl(route),
     lastModified: new Date(),
   }));

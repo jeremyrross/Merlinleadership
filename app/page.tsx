@@ -165,16 +165,14 @@ export default async function Home() {
             Who&apos;s writing
           </div>
           <p className="text-lg max-w-[56ch] text-balance">
-            I&apos;m <strong className="font-semibold">Jeremy Ross</strong>.
-            I&apos;ve spent more than twenty years in leadership, including
-            over a decade leading teams at Apple and at La Maison Simons,
-            one of Canada&apos;s oldest family-owned retailers. That&apos;s
-            where I learned how organizations actually run, where they get
-            stuck, and what it takes to get them moving again.
+            I&apos;m <strong className="font-semibold">Jeremy Ross</strong>,
+            and I&apos;ve spent over twenty years developing leaders and the
+            teams around them, including more than a decade inside respected
+            global and Canadian brands.
           </p>
           <p className="text-lg max-w-[56ch] text-balance mt-4">
-            I write to sharpen my own thinking and to pass on what&apos;s worked.
-            If one of these helps you lead a little better, it did its job.
+            I write because I believe the world needs better leaders. It&apos;s
+            my sincere hope that what I share here helps shape them.
           </p>
           <Link href="/about" className="inline-block mt-5 text-sm font-semibold text-teal-700 hover:text-teal-800">
             More about me →

@@ -28,15 +28,12 @@ export default function AboutPage() {
               Jeremy Ross
             </h1>
             <p className="mt-6 text-lg text-balance">
-              I&apos;ve spent more than twenty years leading teams and developing
-              the leaders around them. This site is where I write down what
-              that work has taught me.
+              I&apos;ve spent over twenty years developing leaders and the teams
+              around them, including more than a decade inside respected
+              global and Canadian brands.
             </p>
             <p className="mt-5 text-base text-neutral-600 text-balance">
-              I&apos;ve spent more than twenty years in leadership, including
-              over a decade leading teams at Apple and at La Maison Simons,
-              one of Canada&apos;s oldest family-owned retailers. That&apos;s
-              where I learned how organizations actually run, where they get
+              That&apos;s where I learned how organizations actually run, where they get
               stuck, and what it takes to get them moving again.
             </p>
             <p className="mt-5 text-base text-neutral-600 text-balance">
@@ -70,9 +67,10 @@ export default function AboutPage() {
               Northwestern University and Copenhagen Business School.
             </p>
             <p className="mt-5 text-base text-neutral-600 text-balance">
-              I&apos;m writing to sharpen my own thinking, and in the hope that
-              some of it helps you lead a little better. If something here
-              lands, or you see it differently, I&apos;d like to hear from you.
+              I write because I believe the world needs better leaders, and
+              it&apos;s my sincere hope that what I share here helps shape them.
+              If something lands, or you see it differently, I&apos;d like to
+              hear from you.
             </p>
             <div className="flex flex-wrap gap-2.5 mt-8">
               <Button href="/posts" variant="primary" size="lg">

@@ -94,7 +94,7 @@ export default async function Home() {
               href="#subscribe"
               className="text-sm font-semibold text-neutral-300 hover:text-white transition-colors"
             >
-              Get new essays by email →
+              Free guide: 7 Leadership Lessons →
             </Link>
           </div>
         </div>
@@ -216,14 +216,15 @@ export default async function Home() {
         <div className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(48px,7vw,88px)] grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-14 items-center">
           <div>
             <div className="text-xs tracking-[0.2em] uppercase text-orange-300 mb-3.5">
-              Get the next one
+              Free guide
             </div>
             <h2 className="font-serif italic font-medium text-[clamp(1.5rem,3vw,2.2rem)] leading-[1.2] text-balance">
-              New essays, straight to your inbox.
+              7 Leadership Lessons, learned in the field
             </h2>
             <p className="mt-4 text-base text-neutral-300 max-w-[46ch]">
-              You&apos;ll also get a free copy of <em>7 Leadership Lessons</em>:
-              seven moments, mostly mistakes, that changed how I lead.
+              Mostly through making mistakes. Seven moments that changed how I
+              lead, sent straight to your inbox, along with new essays as I
+              write them.
             </p>
           </div>
           <div className="rounded-lg bg-white p-6 text-neutral-900">

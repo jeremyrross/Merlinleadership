@@ -32,7 +32,7 @@ export default function SiteHeader() {
             </Link>
           ))}
           <Button href="/#subscribe" variant="primary" size="md">
-            Subscribe
+            Get the free guide
           </Button>
           <MobileMenu items={site.nav} />
         </nav>

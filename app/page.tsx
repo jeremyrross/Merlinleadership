@@ -102,7 +102,7 @@ export default async function Home() {
 
       {/* 2. Latest essay, featured */}
       {latest && (
-        <section className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 pt-[clamp(48px,7vw,88px)]">
+        <section className="mx-auto max-w-[1120px] px-5 sm:px-8 md:px-12 py-[clamp(48px,7vw,88px)]">
           <div className="text-xs tracking-[0.24em] uppercase text-orange-600 mb-4">Latest</div>
           <Link
             href={`/posts/${latest.slug}`}

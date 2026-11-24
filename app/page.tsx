@@ -81,20 +81,14 @@ export default async function Home() {
             practice it a little better.
           </p>
           <div className="flex flex-wrap items-center gap-5 mt-10">
-            {latest ? (
-              <Button href={`/posts/${latest.slug}`} variant="accent" size="lg">
-                Read the latest
-              </Button>
-            ) : (
-              <Button href="/posts" variant="accent" size="lg">
-                Read the essays
-              </Button>
-            )}
+            <Button href="#subscribe" variant="accent" size="lg">
+              Get the free guide
+            </Button>
             <Link
-              href="#subscribe"
+              href="/posts"
               className="text-sm font-semibold text-neutral-300 hover:text-white transition-colors"
             >
-              Free guide: 7 Leadership Lessons →
+              Browse all essays →
             </Link>
           </div>
         </div>

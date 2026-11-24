@@ -63,9 +63,9 @@ export default async function Home() {
       />
 
       {/* 1. Hero: what this place is */}
-      <section className="bg-neutral-950 text-white py-[clamp(64px,10vw,136px)] px-5 sm:px-8 md:px-12">
+      <section className="bg-neutral-950 text-white py-[clamp(52px,8vw,112px)] px-5 sm:px-8 md:px-12">
         <div className="mx-auto max-w-[1120px]">
-          <div className="flex items-center gap-3 mb-7">
+          <div className="flex items-center gap-3 mb-6">
             <span className="w-[26px] h-px bg-orange-500 block" aria-hidden />
             <span className="text-xs tracking-[0.2em] uppercase text-orange-300">
               Essays on leadership
@@ -74,22 +74,15 @@ export default async function Home() {
           <h1 className="font-serif italic font-medium text-[clamp(2.1rem,5.4vw,3.8rem)] leading-[1.06] tracking-[-0.015em] max-w-[20ch] text-balance">
             Leadership is a practice, not a title.
           </h1>
-          <p className="mt-7 text-[clamp(1rem,1.6vw,1.2rem)] text-neutral-300 max-w-[58ch]">
-            I&apos;m Jeremy Ross. I&apos;ve spent twenty years leading teams and
-            developing the leaders around them. This is where I write down what
-            I&apos;m learning: how to see leadership more clearly, and how to
-            practice it a little better.
+          <p className="mt-6 text-[clamp(1rem,1.6vw,1.2rem)] text-neutral-300 max-w-[52ch]">
+            The world needs better leaders. These essays are my perspective on
+            how we get there: how to see leadership more clearly, and how to
+            practice it better.
           </p>
-          <div className="flex flex-wrap items-center gap-5 mt-10">
-            <Button href="#subscribe" variant="accent" size="lg">
-              Get the free guide
+          <div className="mt-9">
+            <Button href="/posts" variant="accent" size="lg">
+              Start reading
             </Button>
-            <Link
-              href="/posts"
-              className="text-sm font-semibold text-neutral-300 hover:text-white transition-colors"
-            >
-              Browse all essays →
-            </Link>
           </div>
         </div>
       </section>

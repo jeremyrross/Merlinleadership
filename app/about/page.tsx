@@ -33,11 +33,11 @@ export default function AboutPage() {
               that work has taught me.
             </p>
             <p className="mt-5 text-base text-neutral-600 text-balance">
-              Most of what I know about leadership I learned the hard way:
-              on the floor, in tough conversations, and through plenty of
-              mistakes. That includes over a decade leading teams at Apple and
-              at La Maison Simons, one of Canada&apos;s oldest family-owned
-              retailers, and the work I do leading a team today.
+              I&apos;ve spent more than twenty years in leadership, including
+              over a decade leading teams at Apple and at La Maison Simons,
+              one of Canada&apos;s oldest family-owned retailers. That&apos;s
+              where I learned how organizations actually run, where they get
+              stuck, and what it takes to get them moving again.
             </p>
             <p className="mt-5 text-base text-neutral-600 text-balance">
               The ideas I keep coming back to:

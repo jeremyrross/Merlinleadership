@@ -165,10 +165,12 @@ export default async function Home() {
             Who&apos;s writing
           </div>
           <p className="text-lg max-w-[56ch] text-balance">
-            I&apos;m <strong className="font-semibold">Jeremy Ross</strong>. I
-            lead teams for a living and have for over twenty years, including
-            more than a decade at Apple and La Maison Simons. Most of what I
-            know I learned on the floor, often by getting it wrong first.
+            I&apos;m <strong className="font-semibold">Jeremy Ross</strong>.
+            I&apos;ve spent more than twenty years in leadership, including
+            over a decade leading teams at Apple and at La Maison Simons,
+            one of Canada&apos;s oldest family-owned retailers. That&apos;s
+            where I learned how organizations actually run, where they get
+            stuck, and what it takes to get them moving again.
           </p>
           <p className="text-lg max-w-[56ch] text-balance mt-4">
             I write to sharpen my own thinking and to pass on what&apos;s worked.

@@ -79,11 +79,12 @@ export default async function Home() {
             how we get there: how to see leadership more clearly, and how to
             practice it better.
           </p>
-          <div className="mt-9">
-            <Button href="/posts" variant="accent" size="lg">
-              Start reading
-            </Button>
-          </div>
+          <Link
+            href="/posts"
+            className="inline-block mt-8 text-base font-semibold text-orange-300 hover:text-white transition-colors"
+          >
+            Start reading →
+          </Link>
         </div>
       </section>
 
